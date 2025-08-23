@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.0] - 2025-08-23
+- docs: update README to include project creation instructions (2b79c59)
+- Refactor code structure for improved readability and maintainability (3a5eaf6)
+- feat: rename project to "startercraft-template"; add BlinkButton component with tests and styles (748267a)
+- docs: update CHANGELOG with recent enhancements and refactorings (141eb76)
+- refactor: update navigation path in useHomePageViewModel; add hero section and modal to ThemeShowcasePage (2173373)
+- refactor: update CI workflow, remove Cypress job; add @vitejs/plugin-react-swc to dependencies; enhance HomePage with hero section and navigation (649eae5)
+- docs: add additional documentation links for React Router, Zustand, React Hook Form, and i18next (0669290)
+- docs: add "Back to Index" links throughout README for improved navigation (453063f)
+- docs: reorganize README for improved clarity and add new sections on feature addition and environment configuration (80cd40b)
+- docs: add link to code generation documentation in README (8199dda)
+- docs: update README and store documentation for clarity and structure; add code generation guide with Plop.js (c862ed2)
+- feat: add subcomponent structure guidelines to README (14fc409)
+- ✨ feat: add subcomponent generator to the project (86cedef)
+- docs: :memo: Refactor code structure for improved readability and maintainability (760041f)
+- Add Prettier configuration file for consistent code formatting (7c1f65b)
+- feat: :art: add daisyui and implement a siple custom theme with support for dark and light themes (c72a10f)
+- refactor: :recycle: refactored and cleaned all code (d24cd77)
+- upgrade dependencies (feb7e88)
+- upgrade dependencies (671451c)
+- change license to cc0 (0aad5e7)
+
+---
+
 ## [22/08/2025]
 
 ### Added
@@ -367,4 +391,4 @@
 
 ---
 
-> Generated on August 22, 2025.
+> Generated on August 23, 2025.
