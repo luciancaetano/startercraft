@@ -4,6 +4,18 @@
 
 # ⚡️ Fast and Scalable React Project
 
+## 🚀 Create a New Project
+
+To quickly start a new project using this template, run the following command:
+
+```bash
+npx create-startercraft my-awesome-scalable-project
+```
+
+Replace `my-awesome-scalable-project` with your desired project name. This command will set up a new project with all the configurations and best practices included in this template.
+
+---
+
 [![License](https://img.shields.io/github/license/luciancaetano/base-react-typescript-project?color=blue)](./LICENCE.md)
 [![Contributors](https://img.shields.io/github/contributors/luciancaetano/base-react-typescript-project)](https://github.com/luciancaetano/base-react-typescript-project/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/base-react-typescript-project?logo=git)](https://github.com/luciancaetano/base-react-typescript-project/commits/main)
