@@ -288,6 +288,10 @@ This starter was inspired by best practices and setups from the React community,
 
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [React Router Documentation](https://reactrouter.com/)
+- [Zustand Documentation](https://github.com/pmndrs/zustand)
+- [React Hook Form Documentation](https://react-hook-form.com/)
+- [i18next Documentation](https://www.i18next.com/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Jest Documentation](https://jestjs.io/docs/getting-started)
 - [Cypress Documentation](https://docs.cypress.io/)
