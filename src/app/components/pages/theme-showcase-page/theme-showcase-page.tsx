@@ -2,7 +2,7 @@ import styles from './theme-showcase-page.module.scss';
 import { ThemeShowcasePageProps } from './theme-showcase-page.types';
 import Page from '@components/elements/page';
 import clsx from 'clsx';
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 
 function ShowCase({
   title,
@@ -19,6 +19,7 @@ function ShowCase({
 
 function ThemeShowcasePage(props: ThemeShowcasePageProps) {
   const { className, testingID, style } = props;
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <Page
@@ -26,6 +27,37 @@ function ThemeShowcasePage(props: ThemeShowcasePageProps) {
       testingID={testingID}
       style={style}
     >
+      {/* Hero Section */}
+      <div className="hero bg-base-200 py-10">
+        <div className="hero-content text-center">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold">Welcome to the Theme Showcase</h1>
+            <p className="py-6">Explore various components styled with DaisyUI and Tailwind CSS.</p>
+            <button className="btn btn-primary" onClick={() => setModalOpen(true)}>
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="modal modal-open">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">About This Showcase</h3>
+            <p className="py-4">
+              This page demonstrates the power of DaisyUI components and their customization
+              capabilities.
+            </p>
+            <div className="modal-action">
+              <button className="btn btn-primary" onClick={() => setModalOpen(false)}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <ShowCase title="Buttons">
         <button className="btn btn-neutral">Neutral</button>
         <button className="btn btn-primary">Primary</button>
@@ -74,6 +106,21 @@ function ThemeShowcasePage(props: ThemeShowcasePageProps) {
         <br />
         <button className="btn btn-ghost">Ghost</button>
         <button className="btn btn-link">Link</button>
+      </ShowCase>
+
+      <ShowCase title="Tooltips">
+        <div className="tooltip tooltip-primary" data-tip="Primary Tooltip">
+          <button className="btn">Hover me</button>
+        </div>
+        <div className="tooltip tooltip-secondary" data-tip="Secondary Tooltip">
+          <button className="btn">Hover me</button>
+        </div>
+      </ShowCase>
+
+      <ShowCase title="Progress Bars">
+        <progress className="progress progress-primary w-56" value="40" max="100"></progress>
+        <progress className="progress progress-secondary w-56" value="60" max="100"></progress>
+        <progress className="progress progress-accent w-56" value="80" max="100"></progress>
       </ShowCase>
 
       <ShowCase title="Card" className="flex">
@@ -706,7 +753,7 @@ function ThemeShowcasePage(props: ThemeShowcasePageProps) {
           >
             <g fill="white">
               <path d="M11.606,3.068C5.031,3.068,0,7.529,0,12.393s4.344,7.681,4.344,7.681l-.706,2.676c-.093,.353,.284,.644,.602,.464l3.173-1.798c1.403,.447,4.381,.59,4.671,.603-.208-.721-.311-1.432-.311-2.095,0-3.754,3.268-9.04,10.532-9.04,.165,0,.331,.004,.496,.011-.965-4.627-5.769-7.827-11.195-7.827Zm-4.327,7.748c-.797,0-1.442-.646-1.442-1.442s.646-1.442,1.442-1.442,1.442,.646,1.442,1.442-.646,1.442-1.442,1.442Zm8.386,0c-.797,0-1.442-.646-1.442-1.442s.646-1.442,1.442-1.442,1.442,.646,1.442,1.442-.646,1.442-1.442,1.442Z"></path>
-              <path d="M32,19.336c0-4.26-4.998-7.379-9.694-7.379-6.642,0-9.459,4.797-9.459,7.966s2.818,7.966,9.459,7.966c1.469,0,2.762-.211,3.886-.584l2.498,1.585c.197,.125,.447-.052,.394-.279l-.567-2.46c2.36-1.643,3.483-4.234,3.483-6.815Zm-12.73-.81c-.704,0-1.275-.571-1.275-1.275s.571-1.275,1.275-1.275,1.275,.571,1.275,1.275c0,.705-.571,1.275-1.275,1.275Zm6.373,0c-.704,0-1.275-.571-1.275-1.275s.571-1.275,1.275-1.275,1.275,.571,1.275,1.275-.571,1.275-1.275,1.275Z"></path>
+              <path d="M32,19.336c0-4.26-4.998-7.379-9.694-7.379-6.642,0-9.459,4.797-9.459,7.966s2.818,7.966,9.459,7.966c1.469,0,2.762-.211,3.886-.584l2.498,1.585c.197,.125.447-.052.394-.279l-.567-2.46c2.36-1.643,3.483-4.234,3.483-6.815Zm-12.73-.81c-.704,0-1.275-.571-1.275-1.275s.571-1.275,1.275-1.275,1.275,.571,1.275,1.275c0,.705-.571,1.275-1.275,1.275Zm6.373,0c-.704,0-1.275-.571-1.275-1.275s.571-1.275,1.275-1.275,1.275,.571,1.275,1.275-.571,1.275-1.275,1.275Z"></path>
             </g>
           </svg>
           Login with WeChat

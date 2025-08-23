@@ -60,7 +60,7 @@ function useHomePageViewModel({}: HomePageProps) {
   );
 
   const handleGetStarted = useCallback(() => {
-    navigate('/getting-started');
+    navigate('/theme-showcase');
   }, [navigate]);
 
   return {
