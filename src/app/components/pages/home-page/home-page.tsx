@@ -1,6 +1,7 @@
 import styles from './home-page.module.scss';
 import { HomePageProps } from './home-page.types';
 import useHomePageViewModel from './home-page.view-model';
+import BlinkButton from '@components/elements/blink-button';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import clsx from 'clsx';
@@ -33,14 +34,13 @@ function HomePage(props: HomePageProps) {
             alt="Hero"
           />
           <div>
-            <h1 className="text-5xl font-bold">Welcome to Our Platform!</h1>
+            <h1 className="text-5xl font-bold">Welcome to Startercraft!</h1>
             <p className="py-6">
-              Discover the best tools and resources to accelerate your development process. Join our
-              community and start building amazing projects today.
+              Startercraft is a base project template designed to accelerate your development
+              process. It provides tools, configurations, and best practices to help you build
+              scalable and maintainable applications efficiently.
             </p>
-            <button className="btn btn-primary" onClick={handleGetStarted}>
-              Get Started
-            </button>
+            <BlinkButton onClick={handleGetStarted}>Learn More</BlinkButton>
           </div>
         </div>
       </div>
