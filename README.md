@@ -80,6 +80,7 @@ Commonly used commands from `package.json`:
 * [🚀 Getting Started](./docs/getting-started.md)
 * [📦 Store](./docs/store.md)
 * [📂 Component Organization](./docs/component-organization.md)
+* [⚙️ Code Generation](./docs/code-generation.md)
 * [⚖️ License](./LICENCE.md)
 
 ---
