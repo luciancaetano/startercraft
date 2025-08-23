@@ -34,6 +34,8 @@ This template is especially suited for projects that require high scalability an
 
 ## 🚀 Features
 
+[🔝 Back to Index](#-index)
+
 This starter ships with everything you need to build production-grade React apps:
 
 - **Core**
@@ -65,6 +67,8 @@ This starter ships with everything you need to build production-grade React apps
 
 ## 📋 Prerequisites
 
+[🔝 Back to Index](#-index)
+
 Before you begin, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (version 16 or higher)
@@ -73,6 +77,8 @@ Before you begin, ensure you have the following installed:
 ---
 
 ## 📦 Installation
+
+[🔝 Back to Index](#-index)
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
@@ -83,6 +89,8 @@ npm run install
 ---
 
 ## 🛠️ Scripts
+
+[🔝 Back to Index](#-index)
 
 Commonly used commands from `package.json`:
 
@@ -99,6 +107,8 @@ Commonly used commands from `package.json`:
 ---
 
 ## 🧭 Path Aliases
+
+[🔝 Back to Index](#-index)
 
 To avoid messy relative imports, this starter uses TypeScript path aliases:
 
@@ -118,6 +128,8 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 ---
 
 ## ⚙️ Code Generation
+
+[🔝 Back to Index](#-index)
 
 Easily scaffold new components or features with:
 
@@ -171,9 +183,12 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 * **[subcomponent-name]** → The subcomponent name
 > The same structure applies to subcomponents within feature modules.  
 > For example, if a feature contains its own nested components, organize them using the same conventions as shown above for subcomponents. This ensures consistency and maintainability across both global and feature-scoped components.
+
 ---
 
 ## 🧩 Why This Structure?
+
+[🔝 Back to Index](#-index)
 
 * ✅ **Modularity** – clean separation of concerns
 * ✅ **Scalability** – easy to extend features
@@ -184,6 +199,8 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 ---
 
 ## 📚 Examples of Use
+
+[🔝 Back to Index](#-index)
 
 ### Running the Development Server
 
@@ -206,6 +223,8 @@ npm run build
 ---
 
 ## ❓ FAQ
+
+[🔝 Back to Index](#-index)
 
 ### What is the minimum Node.js version required?
 Node.js version 16 or higher is required. Using the latest LTS version is recommended for better stability and support.
@@ -232,9 +251,12 @@ For major version updates, review the changelogs of the respective packages to e
 
 ### How do I report a bug or request a feature?
 Open an issue on the [GitHub repository](https://github.com/luciancaetano/base-react-typescript-project/issues) with detailed information about the bug or feature request.
+
 ---
 
 ## 🤝 Contributing
+
+[🔝 Back to Index](#-index)
 
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature/amazing-feature`)
@@ -246,17 +268,23 @@ Open an issue on the [GitHub repository](https://github.com/luciancaetano/base-r
 
 ## 📜 License
 
+[🔝 Back to Index](#-index)
+
 This project is licensed under the [CC0](./LICENCE.md).
 
 ---
 
 ## 🌟 Acknowledgements
 
+[🔝 Back to Index](#-index)
+
 This starter was inspired by best practices and setups from the React community, with the goal of helping teams build robust and maintainable apps faster.
 
 ---
 
 ## 🔗 Useful Links
+
+[🔝 Back to Index](#-index)
 
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
