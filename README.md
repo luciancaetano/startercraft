@@ -1,4 +1,8 @@
-# ⚡️ Fast and Scalable React + TypeScript Starter
+<div align="center">
+  <img src="./src/assets/images/startercraft.png" alt="Startercraft Logo" width="200" />
+</div>
+
+# ⚡️ Fast and Scalable React Project
 
 [![License](https://img.shields.io/github/license/luciancaetano/base-react-typescript-project?color=blue)](./LICENCE.md)
 [![Contributors](https://img.shields.io/github/contributors/luciancaetano/base-react-typescript-project)](https://github.com/luciancaetano/base-react-typescript-project/graphs/contributors)

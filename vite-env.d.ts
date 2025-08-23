@@ -5,3 +5,8 @@ declare module 'vite-plugin-dynamic-import' {
 
   export default function dynamicImport(): Plugin;
 }
+
+declare module '*.md' {
+  const content: string;
+  export default content;
+}
