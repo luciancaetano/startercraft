@@ -90,6 +90,7 @@
     "@types/marked": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
+    "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10",
     "browserslist-to-esbuild": "^2.1.1",
     "cross-env": "^10.0.0",

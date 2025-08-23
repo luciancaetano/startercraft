@@ -20,11 +20,31 @@ function HomePage(props: HomePageProps) {
     changeLanguage,
     language,
     t,
+    handleGetStarted,
   } = useHomePageViewModel(props);
 
   return (
     <Page className={clsx('home-page', styles.homePage, className)} testingID={testingID}>
-      <div className="bg-white p-8 rounded-lg shadow-xl mt-16 mx-auto max-w-2xl">
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            className="max-w-sm rounded-lg shadow-2xl"
+            alt="Hero"
+          />
+          <div>
+            <h1 className="text-5xl font-bold">Welcome to Our Platform!</h1>
+            <p className="py-6">
+              Discover the best tools and resources to accelerate your development process. Join our
+              community and start building amazing projects today.
+            </p>
+            <button className="btn btn-primary" onClick={handleGetStarted}>
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white p-8 rounded-lg shadow-xl mt-8 mx-auto max-w-2xl">
         <h1 className="text-4xl font-bold mb-6 text-center text-purple-700">✨ {t('title')} ✨</h1>
         <div className="flex mb-6">
           <input

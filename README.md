@@ -294,4 +294,3 @@ This starter was inspired by best practices and setups from the React community,
 - [i18next Documentation](https://www.i18next.com/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [Cypress Documentation](https://docs.cypress.io/)
