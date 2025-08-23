@@ -1,6 +1,6 @@
 {
   "name": "startercraft-template",
-  "description": "A base react typescript project",
+  "description": "An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luciancaetano/base-react-typescript-project.git"
+    "url": "https://github.com/luciancaetano/startercraft.git"
   },
   "scripts": {
     "start": "vite --host",

@@ -16,9 +16,9 @@ Replace `my-awesome-scalable-project` with your desired project name. This comma
 
 ---
 
-[![License](https://img.shields.io/github/license/luciancaetano/base-react-typescript-project?color=blue)](./LICENCE.md)
-[![Contributors](https://img.shields.io/github/contributors/luciancaetano/base-react-typescript-project)](https://github.com/luciancaetano/base-react-typescript-project/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/base-react-typescript-project?logo=git)](https://github.com/luciancaetano/base-react-typescript-project/commits/main)
+[![License](https://img.shields.io/github/license/luciancaetano/startercraft?color=blue)](./LICENCE.md)
+[![Contributors](https://img.shields.io/github/contributors/luciancaetano/startercraft)](https://github.com/luciancaetano/startercraft/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/startercraft?logo=git)](https://github.com/luciancaetano/startercraft/commits/main)
 
 An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.  
 This template is especially suited for projects that require high scalability and complexity, promoting a clean architecture, modularity, and conventions that make maintenance easier, improve code quality, and enhance overall codebase understanding across the team.
@@ -27,7 +27,6 @@ This template is especially suited for projects that require high scalability an
 
 ## 📖 Index
 
-* [🚀 Getting Started](./docs/getting-started.md)
 * [📦 Store](./docs/store.md)
 * [📂 Component Organization](./docs/component-organization.md)
 * [⚙️ Code Generation](./docs/code-generation.md)
@@ -266,7 +265,7 @@ npm update
 For major version updates, review the changelogs of the respective packages to ensure compatibility.
 
 ### How do I report a bug or request a feature?
-Open an issue on the [GitHub repository](https://github.com/luciancaetano/base-react-typescript-project/issues) with detailed information about the bug or feature request.
+Open an issue on the [GitHub repository](https://github.com/luciancaetano/startercraft/issues) with detailed information about the bug or feature request.
 
 ---
 
