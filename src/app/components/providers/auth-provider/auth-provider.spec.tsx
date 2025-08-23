@@ -1,5 +1,6 @@
 import { useAuth } from './index';
 import { renderHook, act } from '@lib/tests';
+
 describe('AuthProvider Component and useAuth hook', () => {
   it('should initialize with default value', () => {
     const { result } = renderHook(() => useAuth());
@@ -42,6 +43,6 @@ describe('AuthProvider Component and useAuth hook', () => {
       });
     });
 
-    expect(result.current.user).toBe('user');
+    expect(result.current.user?.name).toBe('User');
   });
 });

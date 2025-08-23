@@ -7,14 +7,12 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { HashRouter as Router } from 'react-router-dom';
 
 function AppProvider(props: AppProviderProps) {
-  const { children } = props;
+  const { children, withoutRouter } = props;
 
   return (
     <React.Suspense fallback={<Loader />}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <AuthProvider>
-          <Router>{children}</Router>
-        </AuthProvider>
+        <AuthProvider>{withoutRouter ? children : <Router>{children}</Router>}</AuthProvider>
       </ErrorBoundary>
     </React.Suspense>
   );

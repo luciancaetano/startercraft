@@ -52,7 +52,11 @@ export default abstract class APIClient {
     });
   }
 
-  private toQueryString(params: Record<string, string>): string {
+  public async get(endpoint: string): Promise<any> {
+    return this.client.get(endpoint);
+  }
+
+  protected toQueryString(params: Record<string, string>): string {
     return Object.entries(params)
       .filter(([, value]) => value !== undefined)
       .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)

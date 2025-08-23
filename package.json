@@ -16,10 +16,10 @@
     "start": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "is-ci \"test:coverage\" \"test:jest\"",
+    "test": "is-ci \"test:coverage\" \"test:unit\"",
     "test:staged": "cross-env CI=1 react-scripts test --findRelatedTests",
-    "test:jest": "jest",
-    "test:coverage": "cross-env CI=1 yarn test:jest -- --coverage",
+    "test:unit": "vitest",
+    "test:coverage": "cross-env CI=1 yarn test:unit -- --coverage",
     "postinstall": "husky install",
     "pretest:e2e:run": "yarn build",
     "test:e2e:dev": "start-server-and-test start:cli http://localhost:3000 cy:open",
@@ -94,6 +94,7 @@
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
     "@vitejs/plugin-react-swc": "^3.11.0",
+    "@vitest/coverage-istanbul": "^3.2.4",
     "autoprefixer": "^10",
     "browserslist-to-esbuild": "^2.1.1",
     "cross-env": "^10.0.0",
@@ -131,7 +132,8 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
     "vite-plugin-string": "^1.2.3",
-    "vite-vitals": "^1.0.2"
+    "vite-vitals": "^1.0.2",
+    "vitest": "^3.2.4"
   },
   "eslintConfig": {
     "overrides": [

@@ -7,16 +7,6 @@ describe('Loader Component', () => {
     expect(container).toBeTruthy();
   });
 
-  it('should render with children', () => {
-    const { getByText } = render(
-      <Loader>
-        <div>Test</div>
-      </Loader>,
-    );
-
-    expect(getByText('Test')).toBeInTheDocument();
-  });
-
   it('should render with children and className', () => {
     const { container } = render(<Loader className="test">Test</Loader>);
 

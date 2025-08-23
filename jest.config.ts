@@ -17,6 +17,7 @@ export default {
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.(png|jpg|jpeg|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
   moduleDirectories: ['node_modules', 'src'],
   globals: {
@@ -24,4 +25,5 @@ export default {
       tsconfig: 'tsconfig.json',
     },
   },
+  setupFiles: ['jest-text-encoder-polyfill'],
 } as JestConfigWithTsJest;
