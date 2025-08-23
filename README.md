@@ -143,6 +143,20 @@ src/features/[name]/
 │── config/               # Configurations
 ```
 
+### 📂 SubComponent Structure
+
+```bash
+src/components/[type]/[parent-name]/components/[subcomponent-name]/
+│── [name].tsx            # Subcomponent view
+│── [name].spec.tsx       # Unit test
+│── [name].module.scss    # Styles (scoped)
+│── [name].types.ts       # Types & interfaces
+│── [name].view-model.ts  # View-model / logic
+│── index.ts              # Public exports
+```
+
+* **[name]** → The subcomponent name
+
 ---
 
 ## 🧩 Why This Structure?
