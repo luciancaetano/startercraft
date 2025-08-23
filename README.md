@@ -4,9 +4,8 @@
 [![Contributors](https://img.shields.io/github/contributors/luciancaetano/base-react-typescript-project)](https://github.com/luciancaetano/base-react-typescript-project/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/base-react-typescript-project?logo=git)](https://github.com/luciancaetano/base-react-typescript-project/commits/main)
 
-
-An **opinionated boilerplate** for building modern, fast, and scalable React applications with TypeScript.  
-This starter includes a curated set of tools and conventions that enable clean architecture, modularity, and rapid development.
+An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.  
+This template is especially suited for projects that require high scalability and complexity, promoting a clean architecture, modularity, and conventions that make maintenance easier, improve code quality, and enhance overall codebase understanding across the team.
 
 ---
 
@@ -155,8 +154,9 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 │── index.ts              # Public exports
 ```
 
-* **[name]** → The subcomponent name
-
+* **[subcomponent-name]** → The subcomponent name
+> The same structure applies to subcomponents within feature modules.  
+> For example, if a feature contains its own nested components, organize them using the same conventions as shown above for subcomponents. This ensures consistency and maintainability across both global and feature-scoped components.
 ---
 
 ## 🧩 Why This Structure?

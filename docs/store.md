@@ -1,18 +1,50 @@
-# Stores Organization and Structure
+# Store Organization and Structure
 
-In our project, we organize our stores in a specific structure to maintain consistency and readability. Here's how we structure our stores:
+To maintain consistency, scalability, and readability, our project follows a clear convention for organizing state management stores. Below is the recommended structure:
 
-- `src/`: This is the main folder where all the source code of the application lives.
-  - `stores/`: This folder contains all the state management logic for the application.
-    - `[storeName]/`: Each store has its own folder named after the store. For example, the `counter` store is in the `counter` folder.
-      - `[storeName].store.ts`: This is the main file for the store. It contains the state and actions for the store.
-      - `[storeName].types.ts`: This file contains the TypeScript types used in the store.
-      - `index.ts`: This file exports everything from the store for use in other parts of the application.
+```
+src/
+  stores/
+    [storeName]/
+      [storeName].store.ts   # Main store logic: state, actions, selectors
+      [storeName].types.ts   # TypeScript types for state, actions, etc.
+      index.ts               # Barrel file for clean imports
+```
 
-In the `[storeName].store.ts` file, we define our state and actions. We use TypeScript to ensure type safety in our state and actions.
+## Folder and File Breakdown
 
-In the `[storeName].types.ts` file, we define all the types used in our store. This includes the state type and the action types.
+- **`stores/`**: Central location for all application state management logic.
+- **`[storeName]/`**: Each store gets its own folder, named after its domain (e.g., `counter`, `user`).
+  - **`[storeName].store.ts`**: Implements the store using [zustand](https://github.com/pmndrs/zustand). Defines state, actions, and selectors. Example: `counter.store.ts`.
+  - **`[storeName].types.ts`**: Contains all TypeScript interfaces and types related to the store, ensuring type safety and clarity.
+  - **`index.ts`**: Exports the store and types, providing a single entry point for importing elsewhere in the app.
 
-The `index.ts` file is the entry point to the store. It exports everything from the store so that other parts of the application can use the state and actions from the store.
+## Example
 
-All stores are implemented using [zustand](https://github.com/pmndrs/zustand). This is a lightweight state management library that uses React hooks to manage state. It is very easy to use and has a very small API surface area.
+```
+src/
+  stores/
+    counter/
+      counter.store.ts
+      counter.types.ts
+      index.ts
+```
+
+## Best Practices
+
+- **Type Safety**: Always define and use explicit types for state and actions.
+- **Encapsulation**: Keep store logic self-contained within its folder.
+- **Reusability**: Export only what’s necessary from `index.ts` for clean and maintainable imports.
+
+## Why Zustand?
+
+We use [zustand](https://github.com/pmndrs/zustand) for state management because it is:
+
+- Lightweight and fast
+- Simple API, easy to learn
+- Built on React hooks
+- Scalable for both small and large applications
+
+---
+
+By following this structure, our codebase remains organized, scalable, and easy for any developer to navigate and maintain.
