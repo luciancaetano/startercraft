@@ -30,30 +30,8 @@
 - Added a new generator for subcomponents in `generators/subcomponent/index.cjs`.
   - Supports generating subcomponents within features and components.
   - Includes options for i18n support.
-- Updated `plopfile.cjs` to include the new subcomponent generator.
-  - Ensures `subcomponentGenerator` is a valid function before usage.
 
 ### Changed
-- Refactored navigation path in `useHomePageViewModel`.
-- Enhanced `ThemeShowcasePage` with a hero section and modal.
-- Updated CI workflow by removing Cypress job and adding `@vitejs/plugin-react-swc`.
-- Improved `HomePage` with a hero section and navigation.
-
-### Fixed
-- No fixes.
-
----
-
-## [08/05/2025]
-
-### Added
-- Added DaisyUI and implemented a simple custom theme with support for dark and light themes.
-
-### Changed
-- Refactored and cleaned all code.
-
-### Fixed
-- No fixes.
 
 ---
 
