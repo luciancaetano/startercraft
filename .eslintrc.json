@@ -172,7 +172,7 @@
             ]
           }
         ],
-        "linebreak-style": "off",
+        "linebreak-style": [ "error", "crlf" ],
         "react/prop-types": "off",
         "import/order": [
           "error",
