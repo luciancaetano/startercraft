@@ -3,6 +3,14 @@
 </div>
 
 # ⚡️ Fast and Scalable React Project
+---
+
+[![License](https://img.shields.io/github/license/luciancaetano/startercraft?color=blue)](./LICENCE.md)
+[![Contributors](https://img.shields.io/github/contributors/luciancaetano/startercraft)](https://github.com/luciancaetano/startercraft/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/startercraft?logo=git)](https://github.com/luciancaetano/startercraft/commits/main)
+
+An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.  
+This template is especially suited for projects that require high scalability and complexity, promoting a clean architecture, modularity, and conventions that make maintenance easier, improve code quality, and enhance overall codebase understanding across the team.
 
 ## 🚀 Create a New Project
 
@@ -13,15 +21,6 @@ npx create-startercraft my-awesome-scalable-project
 ```
 
 Replace `my-awesome-scalable-project` with your desired project name. This command will set up a new project with all the configurations and best practices included in this template.
-
----
-
-[![License](https://img.shields.io/github/license/luciancaetano/startercraft?color=blue)](./LICENCE.md)
-[![Contributors](https://img.shields.io/github/contributors/luciancaetano/startercraft)](https://github.com/luciancaetano/startercraft/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/startercraft?logo=git)](https://github.com/luciancaetano/startercraft/commits/main)
-
-An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.  
-This template is especially suited for projects that require high scalability and complexity, promoting a clean architecture, modularity, and conventions that make maintenance easier, improve code quality, and enhance overall codebase understanding across the team.
 
 ---
 
