@@ -9,6 +9,29 @@ This template is especially suited for projects that require high scalability an
 
 ---
 
+## 📖 Index
+
+* [🚀 Getting Started](./docs/getting-started.md)
+* [📦 Store](./docs/store.md)
+* [📂 Component Organization](./docs/component-organization.md)
+* [⚙️ Code Generation](./docs/code-generation.md)
+* [⚖️ License](./LICENCE.md)
+* [🚀 Features](#-features)
+* [📋 Prerequisites](#-prerequisites)
+* [📦 Installation](#-installation)
+* [🛠️ Scripts](#%EF%B8%8F-scripts)
+* [🧭 Path Aliases](#-path-aliases)
+* [⚙️ Code Generation](#%EF%B8%8F-code-generation)
+* [🧩 Why This Structure?](#-why-this-structure)
+* [📚 Examples of Use](#-examples-of-use)
+* [❓ FAQ](#-faq)
+* [🤝 Contributing](#-contributing)
+* [📜 License](#-license)
+* [🌟 Acknowledgements](#-acknowledgements)
+* [🔗 Useful Links](#-useful-links)
+
+---
+
 ## 🚀 Features
 
 This starter ships with everything you need to build production-grade React apps:
@@ -72,16 +95,6 @@ Commonly used commands from `package.json`:
 | `npm run validate` | Type-check, lint and run tests                 |
 | `npm run cy:run`   | Run Cypress end-to-end tests                   |
 | `npm run generate` | Run the code generator for components/features |
-
----
-
-## 📖 Documentation
-
-* [🚀 Getting Started](./docs/getting-started.md)
-* [📦 Store](./docs/store.md)
-* [📂 Component Organization](./docs/component-organization.md)
-* [⚙️ Code Generation](./docs/code-generation.md)
-* [⚖️ License](./LICENCE.md)
 
 ---
 
@@ -195,11 +208,30 @@ npm run build
 ## ❓ FAQ
 
 ### What is the minimum Node.js version required?
-Node.js version 16 or higher is required.
+Node.js version 16 or higher is required. Using the latest LTS version is recommended for better stability and support.
 
 ### Can I use npm instead of npm run?
-Yes, but npm run is recommended for consistency.
+Yes, but using `npm run` is recommended for consistency and to ensure compatibility with the predefined scripts in the project.
 
+### How do I add a new feature or component?
+Use the code generation tool by running:
+```bash
+npm run generate
+```
+Follow the prompts to scaffold the desired feature or component.
+
+### How do I configure environment variables?
+Create a `.env` file in the root directory and define your variables there. Use the `example.env` file as a reference.
+
+### How do I update dependencies?
+Run the following command to update all dependencies:
+```bash
+npm update
+```
+For major version updates, review the changelogs of the respective packages to ensure compatibility.
+
+### How do I report a bug or request a feature?
+Open an issue on the [GitHub repository](https://github.com/luciancaetano/base-react-typescript-project/issues) with detailed information about the bug or feature request.
 ---
 
 ## 🤝 Contributing
