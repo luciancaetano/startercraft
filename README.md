@@ -67,7 +67,7 @@ This starter ships with everything you need to build production-grade React apps
   - [daisyUI](https://daisyui.com/) – Tailwind CSS component library
 
 - **Testing & Quality**
-  - [Jest](https://jestjs.io/) – unit testing
+  - [Vitest](https://vitest.dev/) – unit testing
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) – testing React components
   - [ESLint](https://eslint.org/) – linting
 
@@ -112,7 +112,7 @@ Commonly used commands from `package.json`:
 | `npm run start`    | Start the development server                   |
 | `npm run build`    | Compile the application for production         |
 | `npm run lint`     | Run ESLint                                     |
-| `npm run test`     | Run unit tests (Jest)                          |
+| `npm run test`     | Run unit tests (Vitest)                          |
 | `npm run validate` | Type-check, lint and run tests                 |
 | `npm run cy:run`   | Run Cypress end-to-end tests                   |
 | `npm run generate` | Run the code generator for components/features |
@@ -306,4 +306,4 @@ This starter was inspired by best practices and setups from the React community,
 - [React Hook Form Documentation](https://react-hook-form.com/)
 - [i18next Documentation](https://www.i18next.com/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
+- [Vitest Documentation](https://vitest.dev/guide/)
