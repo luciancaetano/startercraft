@@ -28,6 +28,7 @@ Replace `my-awesome-scalable-project` with your desired project name. This comma
 * [📦 Store](./docs/store.md)
 * [📂 Component Organization](./docs/component-organization.md)
 * [⚙️ Code Generation](./docs/code-generation.md)
+* [🧩 What is a Feature?](./docs/feature-definition.md)
 * [⚖️ License](./LICENCE.md)
 * [🚀 Features](#-features)
 * [📋 Prerequisites](#-prerequisites)
