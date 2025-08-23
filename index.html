@@ -5,6 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StarterCraft Page - Context7</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script>
+      // Traduções
+      const translations = {
+        'pt-BR': {
+          createProjectTitle: "🚀 Como criar um novo projeto",
+          createProjectDesc: "Para iniciar rapidamente um novo projeto com este template, execute o comando abaixo no terminal:",
+          createProjectCmd: "npx create-startercraft my-app",
+          createProjectNote: "Substitua <code>my-app</code> pelo nome desejado para seu projeto.<br>Esse comando irá configurar um novo projeto já com todas as melhores práticas e estrutura deste template.",
+          aboutTitle: "Sobre o Projeto",
+          aboutDesc: `O <b>StarterCraft Page</b> é um template moderno para projetos React, focado em organização, escalabilidade e produtividade. Utiliza padrões como MVVM, geração de código automatizada e gerenciamento de estado eficiente.`,
+          aboutList: [
+            "Organização modular de componentes e stores",
+            "Geração de código com Plop.js para acelerar o desenvolvimento",
+            "Gerenciamento de estado com Zustand",
+            "Estrutura inspirada em padrões de arquitetura modernos"
+          ],
+          aboutFinal: "Ideal para projetos de qualquer porte que buscam padronização, facilidade de manutenção e onboarding rápido de novos desenvolvedores.",
+          advantagesTitle: "Vantagens",
+          advantagesList: [
+            "Componentização clara e reutilizável",
+            "Separação de responsabilidades (View, ViewModel, Model)",
+            "Automação de criação de arquivos e pastas",
+            "Escalabilidade para grandes equipes",
+            "Documentação e estrutura intuitivas"
+          ],
+          projectTypeTitle: "Para que tipo de projeto?",
+          projectTypeDesc: "O StarterCraft Page é recomendado para:",
+          projectTypeList: [
+            "Aplicações web React de pequeno a grande porte",
+            "Projetos que exigem organização e escalabilidade",
+            "Times que buscam padronização e onboarding rápido"
+          ],
+          docTitle: "Documentação Breve",
+          docList: [
+            "<b>Geração de Código:</b> Use <code>npm run generate</code> para criar componentes, features e subcomponentes rapidamente com Plop.js.",
+            "<b>Organização de Componentes:</b> Cada componente possui sua própria pasta, seguindo o padrão MVVM (View, ViewModel, Model), facilitando manutenção e testes.",
+            "<b>Store:</b> Gerencie o estado global com Zustand, mantendo cada store em sua própria pasta para clareza e escalabilidade."
+          ],
+          docNote: "Consulte a documentação completa nos arquivos <code>docs/</code> do projeto.",
+          footer: '&copy; 2025 StarterCraft &mdash; Powered by <a href="https://github.com/luciancaetano" target="_blank" rel="noopener" class="hover:underline text-indigo-300">Lucian Caetano</a>'
+        },
+        'en': {
+          createProjectTitle: "🚀 How to create a new project",
+          createProjectDesc: "To quickly start a new project with this template, run the command below in your terminal:",
+          createProjectCmd: "npx create-startercraft my-app",
+          createProjectNote: 'Replace <code>my-app</code> with your desired project name.<br>This command will set up a new project with all best practices and structure from this template.',
+          aboutTitle: "About the Project",
+          aboutDesc: `<b>StarterCraft Page</b> is a modern template for React projects, focused on organization, scalability, and productivity. It uses patterns like MVVM, automated code generation, and efficient state management.`,
+          aboutList: [
+            "Modular organization of components and stores",
+            "Code generation with Plop.js to speed up development",
+            "State management with Zustand",
+            "Structure inspired by modern architecture patterns"
+          ],
+          aboutFinal: "Ideal for projects of any size seeking standardization, easy maintenance, and fast onboarding for new developers.",
+          advantagesTitle: "Advantages",
+          advantagesList: [
+            "Clear and reusable componentization",
+            "Separation of concerns (View, ViewModel, Model)",
+            "Automated creation of files and folders",
+            "Scalability for large teams",
+            "Intuitive documentation and structure"
+          ],
+          projectTypeTitle: "What kind of project?",
+          projectTypeDesc: "StarterCraft Page is recommended for:",
+          projectTypeList: [
+            "Small to large scale React web applications",
+            "Projects that require organization and scalability",
+            "Teams seeking standardization and fast onboarding"
+          ],
+          docTitle: "Brief Documentation",
+          docList: [
+            "<b>Code Generation:</b> Use <code>npm run generate</code> to quickly create components, features, and subcomponents with Plop.js.",
+            "<b>Component Organization:</b> Each component has its own folder, following the MVVM pattern (View, ViewModel, Model), making maintenance and testing easier.",
+            "<b>Store:</b> Manage global state with Zustand, keeping each store in its own folder for clarity and scalability."
+          ],
+          docNote: "See the full documentation in the project's <code>docs/</code> folder.",
+          footer: '&copy; 2025 StarterCraft &mdash; Powered by <a href="https://github.com/luciancaetano" target="_blank" rel="noopener" class="hover:underline text-indigo-300">Lucian Caetano</a>'
+        }
+      };
+
+      function getLang() {
+        const lang = navigator.language || navigator.userLanguage || 'en';
+        return lang === 'pt-BR' ? 'pt-BR' : 'en';
+      }
+
+      function translatePage() {
+        const lang = getLang();
+        const t = translations[lang];
+
+        // Títulos e textos
+        document.getElementById('createProjectTitle').textContent = t.createProjectTitle;
+        document.getElementById('createProjectDesc').textContent = t.createProjectDesc;
+        document.getElementById('createProjectCmd').textContent = t.createProjectCmd;
+        document.getElementById('createProjectNote').innerHTML = t.createProjectNote;
+        document.getElementById('aboutTitle').textContent = t.aboutTitle;
+        document.getElementById('aboutDesc').innerHTML = t.aboutDesc;
+        document.getElementById('aboutList').innerHTML = t.aboutList.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('aboutFinal').textContent = t.aboutFinal;
+        document.getElementById('advantagesTitle').textContent = t.advantagesTitle;
+        document.getElementById('advantagesList').innerHTML = t.advantagesList.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('projectTypeTitle').textContent = t.projectTypeTitle;
+        document.getElementById('projectTypeDesc').textContent = t.projectTypeDesc;
+        document.getElementById('projectTypeList').innerHTML = t.projectTypeList.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('docTitle').textContent = t.docTitle;
+        document.getElementById('docList').innerHTML = t.docList.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('docNote').innerHTML = t.docNote;
+        document.getElementById('footerText').innerHTML = t.footer;
+      }
+
+      window.addEventListener('DOMContentLoaded', translatePage);
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-gradient-to-br from-[#0f172a] via-[#312e81] to-[#203CB9FF]">
     <div class="w-full min-h-screen flex flex-col justify-between">
@@ -22,67 +134,39 @@
         </header>
       </div>
       <main class="flex-1 flex flex-col items-center w-full max-w-3xl mx-auto px-2 sm:px-4">
-  <section class="w-full py-4 sm:py-6 mb-4">
-        <h2 class="text-xl font-semibold text-indigo-200 mb-2 flex items-center justify-center gap-2">
-          <a href="https://github.com/luciancaetano/startercraft" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-indigo-300 hover:underline text-base font-normal">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 inline"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.111-4.555-4.945 0-1.092.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.594 1.028 2.686 0 3.842-2.337 4.688-4.566 4.937.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.135 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-            github.com/luciancaetano/startercraft
-          </a>
+      <section class="w-full py-4 sm:py-6 mb-4">
+        <h2 id="createProjectTitle" class="text-xl font-semibold text-indigo-200 mb-2 flex items-center justify-center gap-2">
+          <!-- texto será preenchido pelo JS -->
         </h2>
       </section>
       <section class="w-full py-6 mb-4">
-        <h2 class="text-xl font-semibold text-indigo-200 mb-2 flex items-center gap-2">🚀 Como criar um novo projeto</h2>
-        <p class="text-gray-200 mb-2">Para iniciar rapidamente um novo projeto com este template, execute o comando abaixo no terminal:</p>
-        <pre class="bg-gray-900 text-indigo-200 rounded-lg p-4 overflow-x-auto text-sm mb-2"><code>npx create-startercraft my-app</code></pre>
-        <p class="text-gray-400 text-sm">Substitua <code>my-app</code> pelo nome desejado para seu projeto.<br>Esse comando irá configurar um novo projeto já com todas as melhores práticas e estrutura deste template.</p>
-        <h2 class="text-2xl font-bold text-indigo-200 mb-4">Sobre o Projeto</h2>
-        <p class="text-gray-200 mb-2">
-          O <b>StarterCraft Page</b> é um template moderno para projetos React, focado em organização, escalabilidade e produtividade. Utiliza padrões como MVVM, geração de código automatizada e gerenciamento de estado eficiente.
-        </p>
-        <ul class="list-disc list-inside text-gray-200 mb-2">
-          <li>Organização modular de componentes e stores</li>
-          <li>Geração de código com Plop.js para acelerar o desenvolvimento</li>
-          <li>Gerenciamento de estado com Zustand</li>
-          <li>Estrutura inspirada em padrões de arquitetura modernos</li>
-        </ul>
-        <p class="text-gray-200">
-          Ideal para projetos de qualquer porte que buscam padronização, facilidade de manutenção e onboarding rápido de novos desenvolvedores.
-        </p>
+        <h2 id="createProjectTitle" class="text-xl font-semibold text-indigo-200 mb-2 flex items-center gap-2" style="display:none"></h2>
+        <p id="createProjectDesc" class="text-gray-200 mb-2"></p>
+        <pre class="bg-gray-900 text-indigo-200 rounded-lg p-4 overflow-x-auto text-sm mb-2"><code id="createProjectCmd"></code></pre>
+        <p id="createProjectNote" class="text-gray-400 text-sm"></p>
+        <h2 id="aboutTitle" class="text-2xl font-bold text-indigo-200 mb-4"></h2>
+        <p id="aboutDesc" class="text-gray-200 mb-2"></p>
+        <ul id="aboutList" class="list-disc list-inside text-gray-200 mb-2"></ul>
+        <p id="aboutFinal" class="text-gray-200"></p>
       </section>
-  <section class="w-full py-4 sm:py-6 mb-4">
-        <h2 class="text-xl font-semibold text-indigo-200 mb-2">Vantagens</h2>
-        <ul class="list-disc list-inside text-gray-200">
-          <li>Componentização clara e reutilizável</li>
-          <li>Separação de responsabilidades (View, ViewModel, Model)</li>
-          <li>Automação de criação de arquivos e pastas</li>
-          <li>Escalabilidade para grandes equipes</li>
-          <li>Documentação e estrutura intuitivas</li>
-        </ul>
+      <section class="w-full py-4 sm:py-6 mb-4">
+        <h2 id="advantagesTitle" class="text-xl font-semibold text-indigo-200 mb-2"></h2>
+        <ul id="advantagesList" class="list-disc list-inside text-gray-200"></ul>
       </section>
-  <section class="w-full py-4 sm:py-6 mb-4">
-        <h2 class="text-xl font-semibold text-indigo-200 mb-2">Para que tipo de projeto?</h2>
-        <p class="text-gray-200 mb-2">
-          O StarterCraft Page é recomendado para:
-        </p>
-        <ul class="list-disc list-inside text-gray-200">
-          <li>Aplicações web React de pequeno a grande porte</li>
-          <li>Projetos que exigem organização e escalabilidade</li>
-          <li>Times que buscam padronização e onboarding rápido</li>
-        </ul>
+      <section class="w-full py-4 sm:py-6 mb-4">
+        <h2 id="projectTypeTitle" class="text-xl font-semibold text-indigo-200 mb-2"></h2>
+        <p id="projectTypeDesc" class="text-gray-200 mb-2"></p>
+        <ul id="projectTypeList" class="list-disc list-inside text-gray-200"></ul>
       </section>
-  <section class="w-full py-4 sm:py-6 mb-4">
-        <h2 class="text-xl font-semibold text-indigo-200 mb-2">Documentação Breve</h2>
-        <ul class="list-disc list-inside text-gray-200 mb-2">
-          <li><b>Geração de Código:</b> Use <code>npm run generate</code> para criar componentes, features e subcomponentes rapidamente com Plop.js.</li>
-          <li><b>Organização de Componentes:</b> Cada componente possui sua própria pasta, seguindo o padrão MVVM (View, ViewModel, Model), facilitando manutenção e testes.</li>
-          <li><b>Store:</b> Gerencie o estado global com Zustand, mantendo cada store em sua própria pasta para clareza e escalabilidade.</li>
-        </ul>
-        <p class="text-gray-400 text-sm mt-4">Consulte a documentação completa nos arquivos <code>docs/</code> do projeto.</p>
+      <section class="w-full py-4 sm:py-6 mb-4">
+        <h2 id="docTitle" class="text-xl font-semibold text-indigo-200 mb-2"></h2>
+        <ul id="docList" class="list-disc list-inside text-gray-200 mb-2"></ul>
+        <p id="docNote" class="text-gray-400 text-sm mt-4"></p>
       </section>
     </main>
-      <footer class="w-full text-center text-gray-400 py-4 sm:py-6 text-xs">
-        &copy; 2020 StarterCraft &mdash; Powered by <a href="https://github.com/luciancaetano" target="_blank" rel="noopener" class="hover:underline text-indigo-300">Lucian Caetano</a>
-      </footer>
+    <footer class="w-full text-center text-gray-400 py-4 sm:py-6 text-xs">
+      <span id="footerText"></span>
+    </footer>
     </div>
   </body>
 </html>
