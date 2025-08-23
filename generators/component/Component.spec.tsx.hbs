@@ -1,24 +1,28 @@
 import { render } from '@lib/tests';
+import { describe, it, expect } from 'vitest';
 import {{pascalCase name}} from './index';
 
 describe('{{pascalCase name}} Component', () => {
-it('should render', () => {
-const { container } = render(
-<{{pascalCase name}} />);
-expect(container).toBeTruthy();
-});
+  it('should render', () => {
+    const { container } = render(<{{pascalCase name}} />);
+    expect(container).toBeTruthy();
+  });
 
-it('should render with children', () => {
-const { getByText } = render(<{{pascalCase name}}>
-    <div>Test</div>
-</{{pascalCase name}}>);
+  it('should render with children', () => {
+    const { getByText } = render(
+      <{{pascalCase name}}>
+        <div>Test</div>
+      </{{pascalCase name}}>
+    );
 
-expect(getByText('Test')).toBeTruthy();
-});
+    expect(getByText('Test')).toBeTruthy();
+  });
 
-it('should render with children and className', () => {
-const { container } = render(<{{pascalCase name}} className="test">Test</{{pascalCase name}}>);
+  it('should render with children and className', () => {
+    const { container } = render(
+      <{{pascalCase name}} className="test">Test</{{pascalCase name}}>
+    );
 
-expect(container.querySelector('.test')).toBeTruthy();
-});
+    expect(container.querySelector('.test')).toBeTruthy();
+  });
 });
