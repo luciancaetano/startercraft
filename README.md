@@ -69,9 +69,7 @@ This starter ships with everything you need to build production-grade React apps
 - **Testing & Quality**
   - [Jest](https://jestjs.io/) – unit testing
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) – testing React components
-  - [Cypress](https://www.cypress.io/) – end-to-end testing
   - [ESLint](https://eslint.org/) – linting
-  - [Husky](https://typicode.github.io/husky/#/) – Git hooks
 
 - **Developer Experience**
   - Code generation (components & features)
