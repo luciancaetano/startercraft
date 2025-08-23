@@ -7,15 +7,16 @@ function getSaveAuthData(): AuthProviderStore {
   const token = localStorage.getItem('token');
   const tenantsJson = localStorage.getItem('tenants');
 
-  if(!userJson || !token || !tenantsJson) return {
-    isAuthenticated: false,
-  };
+  if (!userJson || !token || !tenantsJson)
+    return {
+      isAuthenticated: false,
+    };
 
   try {
     const usr = JSON.parse(userJson) as IUser;
     const tenants = JSON.parse(tenantsJson);
 
-    if(usr.id && tenants) {
+    if (usr.id && tenants) {
       return {
         isAuthenticated: true,
         token,
@@ -27,7 +28,7 @@ function getSaveAuthData(): AuthProviderStore {
       isAuthenticated: false,
     };
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch(e) {
+  } catch (e) {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     localStorage.removeItem('tenants');
@@ -39,10 +40,10 @@ function getSaveAuthData(): AuthProviderStore {
   };
 }
 
-function useAuthProviderModel({ }: AuthProviderProps) {
+function useAuthProviderModel({}: AuthProviderProps) {
   const initalizedState = useRef<boolean>(false);
 
-  const [ store, setStore ] = useState<AuthProviderStore>(getSaveAuthData());
+  const [store, setStore] = useState<AuthProviderStore>(getSaveAuthData());
 
   const authenticate = useCallback((token: string, user: IUser) => {
     setStore({
@@ -65,36 +66,35 @@ function useAuthProviderModel({ }: AuthProviderProps) {
   }, []);
 
   useEffect(() => {
-    if(!initalizedState.current) {
+    if (!initalizedState.current) {
       initalizedState.current = true;
 
       const userJson = localStorage.getItem('user');
       const token = localStorage.getItem('token');
       const tenantsJson = localStorage.getItem('tenants');
 
-      if(!userJson || !token || !tenantsJson) return;
+      if (!userJson || !token || !tenantsJson) return;
 
       try {
         const usr = JSON.parse(userJson) as IUser;
         const tenants = JSON.parse(tenantsJson);
 
-        if(usr.id && tenants) {
+        if (usr.id && tenants) {
           setStore({
             isAuthenticated: true,
             token,
             user: usr,
           });
-
         }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch(e) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (e) {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         localStorage.removeItem('tenants');
         localStorage.removeItem('current-tenant-id');
       }
     }
-  }, [ authenticate ]);
+  }, [authenticate]);
 
   return {
     store,

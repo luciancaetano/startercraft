@@ -70,7 +70,10 @@ module.exports = {
         ? `src/app/components/${componentTypePathsMap[result.componentType]}`
         : `src/app/features/{{feature}}/components/${componentTypePathsMap[result.componentType]}`;
 
-    const useStyles = result.componentType === 'element' || result.componentType === 'layout' || result.componentType === 'page';
+    const useStyles =
+      result.componentType === 'element' ||
+      result.componentType === 'layout' ||
+      result.componentType === 'page';
 
     const wantI18n = result.wantI18n;
 
@@ -80,17 +83,23 @@ module.exports = {
       {
         type: 'add',
         path: basePath + '/{{kebabCase name}}/index.ts',
-        templateFile: !isPage ? 'generators/component/Component.index.ts.hbs' : 'generators/component/Page.index.ts.hbs',
+        templateFile: !isPage
+          ? 'generators/component/Component.index.ts.hbs'
+          : 'generators/component/Page.index.ts.hbs',
       },
       {
         type: 'add',
         path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.tsx',
-        templateFile: isPage ? 'generators/component/Page.tsx.hbs' :'generators/component/Component.tsx.hbs',
+        templateFile: isPage
+          ? 'generators/component/Page.tsx.hbs'
+          : 'generators/component/Component.tsx.hbs',
       },
       {
         type: 'add',
         path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.types.ts',
-        templateFile: !isPage ? 'generators/component/Component.types.ts.hbs' : 'generators/component/Page.types.ts.hbs',
+        templateFile: !isPage
+          ? 'generators/component/Component.types.ts.hbs'
+          : 'generators/component/Page.types.ts.hbs',
       },
       {
         type: 'add',
@@ -100,7 +109,9 @@ module.exports = {
       {
         type: 'add',
         path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.spec.tsx',
-        templateFile: !isPage ? 'generators/component/Component.spec.tsx.hbs' : 'generators/component/Page.spec.tsx.hbs',
+        templateFile: !isPage
+          ? 'generators/component/Component.spec.tsx.hbs'
+          : 'generators/component/Page.spec.tsx.hbs',
       },
     ];
 
@@ -116,7 +127,9 @@ module.exports = {
       actions.push({
         type: 'add',
         path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.module.scss',
-        templateFile: !isPage ? 'generators/component/Component.module.scss.hbs' : 'generators/component/Page.module.scss.hbs',
+        templateFile: !isPage
+          ? 'generators/component/Component.module.scss.hbs'
+          : 'generators/component/Page.module.scss.hbs',
       });
     }
 

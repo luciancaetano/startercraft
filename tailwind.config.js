@@ -1,23 +1,20 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
+const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  mode: "jit",
-  content: [
-    "./public/index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  darkMode: "class",
+  mode: 'jit',
+  content: ['./public/index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     fontFamily: {
-      satoshi: ["Roboto", "sans-serif"],
+      satoshi: ['Roboto', 'sans-serif'],
     },
     screens: defaultTheme.screens,
     extend: {
       colors: Object.assign({}, colors, {
-        "background-secondary": {
+        'background-secondary': {
           100: '#6d6d6d',
           200: '#595959',
           300: '#454545',
@@ -26,7 +23,7 @@ module.exports = {
           600: '#090909',
           700: '#000000',
           800: '#000000',
-          900: '#000000'
+          900: '#000000',
         },
         light: {
           100: '#ffffff',
@@ -37,7 +34,7 @@ module.exports = {
           600: '#b0b4ba',
           700: '#9ca0a6',
           800: '#888c92',
-          900: '#74787e'
+          900: '#74787e',
         },
         surface: {
           100: '#686868',
@@ -48,7 +45,7 @@ module.exports = {
           600: '#040404',
           700: '#000000',
           800: '#000000',
-          900: '#000000'
+          900: '#000000',
         },
         muted: {
           100: '#c8c8d5',
@@ -59,7 +56,7 @@ module.exports = {
           600: '#646471',
           700: '#50505d',
           800: '#3c3c49',
-          900: '#282835'
+          900: '#282835',
         },
         background: {
           100: '#626262',
@@ -70,7 +67,7 @@ module.exports = {
           600: '#000000',
           700: '#000000',
           800: '#000000',
-          900: '#000000'
+          900: '#000000',
         },
         primary: {
           100: '#9d9aff',
@@ -81,20 +78,20 @@ module.exports = {
           600: '#3936a4',
           700: '#252290',
           800: '#110e7c',
-          900: '#000068'
-        }
+          900: '#000068',
+        },
       }),
       fontSize: {
-        ssm: "0.75rem",
-        xxs: "0.75rem",
+        ssm: '0.75rem',
+        xxs: '0.75rem',
       },
       zIndex: {
-        "sidebar-trigger": "1000",
-        sidebar: "1001",
-        modal: "1002",
-        dropdown: "1003",
+        'sidebar-trigger': '1000',
+        sidebar: '1001',
+        modal: '1002',
+        dropdown: '1003',
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
 };

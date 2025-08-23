@@ -8,7 +8,7 @@ export const homePageRoutes: RouteObject[] = [
     path: '/',
     element: (
       <Suspense fallback={<p>Loading...</p>}>
-        <HomePage/>
+        <HomePage />
       </Suspense>
     ),
   },

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import i18n from '@lib/i18n/configure';
 
 // general cleanup
-afterEach(async() => { });
+afterEach(async () => {});
 
 jest.mock('@lib/i18n', () => ({
   withResourceBundle: (component: any) => component,

@@ -10,11 +10,7 @@ function AppProvider(props: AppProviderProps) {
   const { children } = props;
 
   return (
-    <React.Suspense
-      fallback={
-        <Loader/>
-      }
-    >
+    <React.Suspense fallback={<Loader />}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <AuthProvider>
           <Router>{children}</Router>

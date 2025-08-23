@@ -3,7 +3,14 @@ import { ISessionData } from '@app/types/auth';
 import APIClient from '@utils/apiClient';
 
 class AuthApi extends APIClient {
-  public async signup(name: string, email: string, password: string, passwordConfirmation: string, contactPhone?: string, professionType?: string) : Promise<IRequestResponse<ISessionData>> {
+  public async signup(
+    name: string,
+    email: string,
+    password: string,
+    passwordConfirmation: string,
+    contactPhone?: string,
+    professionType?: string,
+  ): Promise<IRequestResponse<ISessionData>> {
     const response = await this.request({
       endPoint: '/auth/signup',
       method: 'POST',
@@ -20,7 +27,7 @@ class AuthApi extends APIClient {
     return response.data;
   }
 
-  public async login(email: string, password: string) : Promise<IRequestResponse<ISessionData>> {
+  public async login(email: string, password: string): Promise<IRequestResponse<ISessionData>> {
     const response = await this.request({
       endPoint: '/auth/login',
       method: 'POST',

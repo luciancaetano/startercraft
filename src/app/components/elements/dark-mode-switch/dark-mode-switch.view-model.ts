@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 function getPreferredColorScheme(): 'dark' | 'light' {
   if (window.matchMedia) {
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
     } else {
       return 'light';
@@ -12,21 +12,21 @@ function getPreferredColorScheme(): 'dark' | 'light' {
   return 'light';
 }
 
-function useDarkModeSwitchViewModel({ }: DarkModeSwitchProps) {
-  const [ colorMode, setColorMode ] = useState(getPreferredColorScheme());
+function useDarkModeSwitchViewModel({}: DarkModeSwitchProps) {
+  const [colorMode, setColorMode] = useState(getPreferredColorScheme());
   const intialized = useRef(false);
 
   useEffect(() => {
     const mode = window.localStorage.getItem('app-color-mode');
 
-    if(mode && (mode === 'dark' || mode === 'light')) {
+    if (mode && (mode === 'dark' || mode === 'light')) {
       setColorMode(mode as 'dark' | 'light');
     }
     intialized.current = true;
-  }, [ ]);
+  }, []);
 
   const switchColorMode = useCallback(() => {
-    setColorMode(cm => {
+    setColorMode((cm) => {
       const cmode = cm === 'dark' ? 'light' : 'dark';
       window.localStorage.setItem('app-color-mode', cmode);
       return cmode;
@@ -36,14 +36,14 @@ function useDarkModeSwitchViewModel({ }: DarkModeSwitchProps) {
   useEffect(() => {
     const currentColorModeClasses = document.body.classList;
 
-    if(colorMode === 'dark') {
+    if (colorMode === 'dark') {
       currentColorModeClasses.add('dark');
     } else {
       currentColorModeClasses.remove('dark');
     }
 
     document.body.setAttribute('data-theme', colorMode);
-  },[ colorMode ]);
+  }, [colorMode]);
 
   return {
     colorMode,

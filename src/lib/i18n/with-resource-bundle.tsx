@@ -32,47 +32,46 @@ function withResourceBundle<T>(
     const namespace = useUUID();
     const loading = useRef(false);
     const done = useRef(false);
-    const [ viewLoading, setViewLoading ] = useState(true);
+    const [viewLoading, setViewLoading] = useState(true);
 
     useEffect(() => {
       if (typeof resourceBundle === 'function') {
         if (!loading.current && !done.current) {
           loading.current = true;
           setViewLoading(true);
-          resourceBundle().then((bundle) => {
+          resourceBundle()
+            .then((bundle) => {
+              Object.entries(bundle.default).forEach(([language, bundle]) => {
+                i18n.addResourceBundle(language, namespace, bundle, true, true);
+              });
 
-            Object.entries(bundle.default).forEach(([ language, bundle ]) => {
-              i18n.addResourceBundle(language, namespace, bundle, true, true);
+              loading.current = false;
+              setViewLoading(false);
+              done.current = true;
+            })
+            .catch((error) => {
+              console.error(error);
+              loading.current = false;
+              setViewLoading(false);
+              done.current = true;
             });
-
-            loading.current = false;
-            setViewLoading(false);
-            done.current = true;
-          }).catch((error) => {
-            console.error(error);
-            loading.current = false;
-            setViewLoading(false);
-            done.current = true;
-          });
         }
       } else {
-        Object.entries(resourceBundle).forEach(([ language, bundle ]) => {
+        Object.entries(resourceBundle).forEach(([language, bundle]) => {
           i18n.addResourceBundle(language, namespace, bundle, true, true);
         });
       }
+    }, [namespace]);
 
-    }, [ namespace ]);
-
-    const trueLoaded = useMemo(() => !viewLoading && !loading.current && done.current, [ viewLoading ]);
+    const trueLoaded = useMemo(
+      () => !viewLoading && !loading.current && done.current,
+      [viewLoading],
+    );
 
     return (
       <TranslationNamespaceContext.Provider value={{ id: namespace }}>
-        {trueLoaded && (
-          <WrappedComponent {...props as any}/>
-        )}
-        {!trueLoaded && (
-          <Loader/>
-        )}
+        {trueLoaded && <WrappedComponent {...(props as any)} />}
+        {!trueLoaded && <Loader />}
       </TranslationNamespaceContext.Provider>
     );
   };

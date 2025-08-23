@@ -7,11 +7,10 @@ const ThemeShowcasePage = React.lazy(() => import('./theme-showcase-page'));
 export const themeShowcasePageRoutes: RouteObject[] = [
   {
     path: '/theme-showcase',
-    element:
-(
-  <Suspense fallback={<Loader/>}>
-    <ThemeShowcasePage/>
-  </Suspense>
-),
+    element: (
+      <Suspense fallback={<Loader />}>
+        <ThemeShowcasePage />
+      </Suspense>
+    ),
   },
 ];

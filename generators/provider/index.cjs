@@ -4,9 +4,8 @@ const path = require('node:path');
 const featuresDir = path.join(process.cwd(), 'src/app/features');
 const features = fs.readdirSync(featuresDir);
 
-
 /**
- * 
+ *
  * @type {import('plop').PlopGenerator}
  */
 module.exports = {

@@ -1,4 +1,3 @@
-
 import AuthProviderContextProvider from './auth-provider.context';
 import useAuthProviderModel from './auth-provider.model';
 import { AuthProviderProps } from './auth-provider.types';

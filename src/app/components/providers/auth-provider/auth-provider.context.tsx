@@ -12,10 +12,9 @@ export const useAuth = () => {
   return context;
 };
 
-export default function AuthProviderContextProvider({ value, children }: PropsWithChildren<{ value: AuthProviderContextType }>) {
-  return (
-    <AuthProviderContext.Provider value={value}>
-      {children}
-    </AuthProviderContext.Provider>
-  );
+export default function AuthProviderContextProvider({
+  value,
+  children,
+}: PropsWithChildren<{ value: AuthProviderContextType }>) {
+  return <AuthProviderContext.Provider value={value}>{children}</AuthProviderContext.Provider>;
 }

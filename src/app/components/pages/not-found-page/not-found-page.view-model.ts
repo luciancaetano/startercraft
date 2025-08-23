@@ -1,7 +1,7 @@
 import { NotFoundPageProps } from './not-found-page.types';
 import { useTranslation } from '@lib/i18n';
 
-function useNotFoundPageViewModel({ }: NotFoundPageProps) {
+function useNotFoundPageViewModel({}: NotFoundPageProps) {
   const { t } = useTranslation();
 
   return {

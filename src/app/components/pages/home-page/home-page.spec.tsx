@@ -3,9 +3,7 @@ import { render } from '@lib/tests';
 
 describe('HomePage Component', () => {
   it('should render', () => {
-    const { container } = render(
-      <HomePage/>,
-    );
+    const { container } = render(<HomePage />);
     expect(container).toBeTruthy();
   });
 

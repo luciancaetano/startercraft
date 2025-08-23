@@ -45,12 +45,18 @@ function HomePage(props: HomePageProps) {
           {todoItems.map((todo) => (
             <li
               key={todo.id}
-              className={clsx('flex items-center justify-between bg-gray-200 p-4 mb-4 rounded text-gray-700', { 'line-through': todo.completed })}
+              className={clsx(
+                'flex items-center justify-between bg-gray-200 p-4 mb-4 rounded text-gray-700',
+                { 'line-through': todo.completed },
+              )}
               onClick={toggleTodo(todo.id)}
             >
               <span className="text-lg">{todo.text}</span>
-              <button className="text-red-500 hover:text-red-700 focus:outline-none" onClick={removeTodo(todo.id)}>
-                <HiOutlineTrash/>
+              <button
+                className="text-red-500 hover:text-red-700 focus:outline-none"
+                onClick={removeTodo(todo.id)}
+              >
+                <HiOutlineTrash />
               </button>
             </li>
           ))}
@@ -60,10 +66,16 @@ function HomePage(props: HomePageProps) {
         <div className="text-center text-gray-500 mt-4">
           {t('currentLanguage', { language: language })}
           <div className="flex justify-center mt-4">
-            <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline-purple" onClick={changeLanguage('en')}>
+            <button
+              className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline-purple"
+              onClick={changeLanguage('en')}
+            >
               en
             </button>
-            <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded ml-4 focus:outline-none focus:shadow-outline-purple" onClick={changeLanguage('pt-BR')}>
+            <button
+              className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded ml-4 focus:outline-none focus:shadow-outline-purple"
+              onClick={changeLanguage('pt-BR')}
+            >
               pt-BR
             </button>
           </div>

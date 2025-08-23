@@ -1,4 +1,3 @@
-
 import appConfig from '@config/app.config';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -9,14 +8,13 @@ i18n
   .use(LanguageDetector)
   .init({
     debug: appConfig.i18next.debug,
-    resources: {
-    },
+    resources: {},
     defaultNS: 'translation',
     fallbackLng: appConfig.i18next.fallbackLng,
     interpolation: {
       escapeValue: false,
     },
-    supportedLngs: [ 'en', 'pt-BR' ],
+    supportedLngs: ['en', 'pt-BR'],
     react: {
       useSuspense: true,
     },

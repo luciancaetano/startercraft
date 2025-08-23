@@ -3,15 +3,16 @@ import { render } from '@lib/tests';
 
 describe('DarkModeSwitch Component', () => {
   it('should render', () => {
-    const { container } = render(
-      <DarkModeSwitch/>);
+    const { container } = render(<DarkModeSwitch />);
     expect(container).toBeTruthy();
   });
 
   it('should render with children', () => {
-    const { getByText } = render(<DarkModeSwitch>
-      <div>Test</div>
-    </DarkModeSwitch>);
+    const { getByText } = render(
+      <DarkModeSwitch>
+        <div>Test</div>
+      </DarkModeSwitch>,
+    );
 
     expect(getByText('Test')).toBeInTheDocument();
   });

@@ -36,7 +36,9 @@ export default abstract class APIClient {
   }: IApiRequestConfig): Promise<AxiosResponse<TR>> {
     return this.client.request({
       method,
-      url: getParams ? `${endPoint}?${this.toQueryString(getParams as Record<string, string>)}` : endPoint,
+      url: getParams
+        ? `${endPoint}?${this.toQueryString(getParams as Record<string, string>)}`
+        : endPoint,
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
         'X-Requested-With': 'XMLHttpRequest',
@@ -51,11 +53,9 @@ export default abstract class APIClient {
   }
 
   private toQueryString(params: Record<string, string>): string {
-    return Object.entries(params).filter(([ , value ]) => value !== undefined )
-      .map(
-        ([ key, value ]) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
-      )
+    return Object.entries(params)
+      .filter(([, value]) => value !== undefined)
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
       .join('&');
   }
 
@@ -66,5 +66,4 @@ export default abstract class APIClient {
   protected get tenantID() {
     return localStorage.getItem('current-tenant-id') ?? null;
   }
-
 }

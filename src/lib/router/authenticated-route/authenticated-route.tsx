@@ -4,15 +4,15 @@ import authConfig from '@config/auth.config';
 import { Outlet, Navigate } from 'react-router-dom';
 
 function AuthenticatedRoute(props: AuthenticatedRouteProps) {
-  const { } = props;
+  const {} = props;
 
   const auth = useAuth();
 
   if (!auth.isAuthenticated) {
-    return <Navigate to={authConfig.redirectToIfNotAuthenticated}/>;
+    return <Navigate to={authConfig.redirectToIfNotAuthenticated} />;
   }
 
-  return <Outlet/>;
+  return <Outlet />;
 }
 
 export default AuthenticatedRoute;

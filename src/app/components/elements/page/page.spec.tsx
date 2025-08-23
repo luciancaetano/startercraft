@@ -3,15 +3,16 @@ import { render } from '@lib/tests';
 
 describe('Page Component', () => {
   it('should render', () => {
-    const { container } = render(
-      <Page/>);
+    const { container } = render(<Page />);
     expect(container).toBeTruthy();
   });
 
   it('should render with children', () => {
-    const { getByText } = render(<Page>
-      <div>Test</div>
-    </Page>);
+    const { getByText } = render(
+      <Page>
+        <div>Test</div>
+      </Page>,
+    );
 
     expect(getByText('Test')).toBeInTheDocument();
   });

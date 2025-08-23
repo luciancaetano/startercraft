@@ -5,23 +5,21 @@ import { render as testRender, renderHook as testRenderHook, act } from '@testin
 import React, { ComponentType } from 'react';
 
 export const appWrapper = ({ children }: React.PropsWithChildren<object>) => (
-  <AppProvider>
-    {children}
-  </AppProvider>
+  <AppProvider>{children}</AppProvider>
 );
 
-export const render = (Component: React.ReactElement) => testRender(Component, { wrapper:appWrapper });
+export const render = (Component: React.ReactElement) =>
+  testRender(Component, { wrapper: appWrapper });
 
-export const renderHook: typeof testRenderHook = (callback, options) => testRenderHook(callback, { wrapper: appWrapper as any, ...options });
+export const renderHook: typeof testRenderHook = (callback, options) =>
+  testRenderHook(callback, { wrapper: appWrapper as any, ...options });
 
 export { act };
 
-export function withAppWrapper<T>(
-  WrappedComponent: ComponentType<T>,
-): ComponentType<T> {
+export function withAppWrapper<T>(WrappedComponent: ComponentType<T>): ComponentType<T> {
   return (props: T) => (
     <AppProvider>
-      <WrappedComponent {...props as any}/>
+      <WrappedComponent {...(props as any)} />
     </AppProvider>
   );
 }

@@ -4,14 +4,14 @@ import { useTranslation } from '@lib/i18n';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function useMainLayoutViewModel({ }: MainLayoutProps) {
+function useMainLayoutViewModel({}: MainLayoutProps) {
   const { t } = useTranslation();
   const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
 
   const handleGoToHomeClick = useCallback(() => {
     navigate('/');
-  }, [ navigate ]);
+  }, [navigate]);
 
   return {
     isAuthenticated,
