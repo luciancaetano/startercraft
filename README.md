@@ -107,15 +107,18 @@ npm run install
 
 Commonly used commands from `package.json`:
 
-| Command         | Description                                    |
-| --------------- | ---------------------------------------------- |
-| `npm run start`    | Start the development server                   |
-| `npm run build`    | Compile the application for production         |
-| `npm run lint`     | Run ESLint                                     |
-| `npm run test`     | Run unit tests (Vitest)                          |
-| `npm run validate` | Type-check, lint and run tests                 |
-| `npm run cy:run`   | Run Cypress end-to-end tests                   |
-| `npm run generate` | Run the code generator for components/features |
+| Command              | Description                                    |
+| -------------------- | ---------------------------------------------- |
+| `npm run start`      | Start the development server                   |
+| `npm run build`      | Compile the application for production         |
+| `npm run preview`    | Preview the production build                   |
+| `npm run test`       | Run all tests                                  |
+| `npm run test:unit`  | Run unit tests (Vitest)                        |
+| `npm run test:coverage` | Run tests with coverage report               |
+| `npm run lint`       | Run ESLint                                     |
+| `npm run serve`      | Serve the production build locally             |
+| `npm run generate`   | Run the code generator for components/features |
+| `npm run validate`   | Type-check, lint, and run tests                |
 
 ---
 

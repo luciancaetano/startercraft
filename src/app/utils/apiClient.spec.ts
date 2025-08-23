@@ -21,8 +21,10 @@ describe('apiClient', () => {
 
   beforeEach(() => {
     mockAxios = {
-      request: vi.fn(),
-      get: vi.fn(),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      request: vi.fn() as any,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      get: vi.fn() as any,
     };
     vi.spyOn(axios, 'create').mockReturnValue(mockAxios as AxiosInstance);
   });

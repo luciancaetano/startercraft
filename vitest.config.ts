@@ -30,8 +30,8 @@ export default defineConfig({
       include: ['src/**/*.{js,ts,jsx,tsx}'],
       exclude: commonExcludes,
     },
-    maxWorkers: 4,
-    minWorkers: 2,
+    maxWorkers: 16,
+    minWorkers: 8,
   },
   plugins: [tsconfigPaths()],
 });

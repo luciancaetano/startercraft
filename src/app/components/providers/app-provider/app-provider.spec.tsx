@@ -5,8 +5,9 @@ import { vi } from 'vitest';
 
 // Mock AppProvider to exclude internal Router for testing
 vi.mock('./index', async () => {
-  const OriginalAppProvider = (await vi.importActual('./index'))
-    .default as React.FC<AppProviderProps>;
+  const OriginalAppProvider = (
+    (await vi.importActual('./index')) as { default: React.FC<AppProviderProps> }
+  ).default as React.FC<AppProviderProps>;
   return {
     default: function MockedAppProvider(props: AppProviderProps) {
       return <OriginalAppProvider {...props} withoutRouter />;
