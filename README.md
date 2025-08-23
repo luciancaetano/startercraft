@@ -1,6 +1,5 @@
 # ⚡️ Fast and Scalable React + TypeScript Starter
 
-
 [![License](https://img.shields.io/github/license/luciancaetano/base-react-typescript-project?color=blue)](./LICENCE.md)
 [![Contributors](https://img.shields.io/github/contributors/luciancaetano/base-react-typescript-project)](https://github.com/luciancaetano/base-react-typescript-project/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/base-react-typescript-project?logo=git)](https://github.com/luciancaetano/base-react-typescript-project/commits/main)
@@ -42,13 +41,22 @@ This starter ships with everything you need to build production-grade React apps
 
 ---
 
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (version 16 or higher)
+- [npm run](https://npm runpkg.com/) (preferred over npm)
+
+---
+
 ## 📦 Installation
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-yarn install
-````
+npm run install
+```
 
 ---
 
@@ -58,13 +66,13 @@ Commonly used commands from `package.json`:
 
 | Command         | Description                                    |
 | --------------- | ---------------------------------------------- |
-| `yarn start`    | Start the development server                   |
-| `yarn build`    | Compile the application for production         |
-| `yarn lint`     | Run ESLint                                     |
-| `yarn test`     | Run unit tests (Jest)                          |
-| `yarn validate` | Type-check, lint and run tests                 |
-| `yarn cy:run`   | Run Cypress end-to-end tests                   |
-| `yarn generate` | Run the code generator for components/features |
+| `npm run start`    | Start the development server                   |
+| `npm run build`    | Compile the application for production         |
+| `npm run lint`     | Run ESLint                                     |
+| `npm run test`     | Run unit tests (Jest)                          |
+| `npm run validate` | Type-check, lint and run tests                 |
+| `npm run cy:run`   | Run Cypress end-to-end tests                   |
+| `npm run generate` | Run the code generator for components/features |
 
 ---
 
@@ -72,6 +80,7 @@ Commonly used commands from `package.json`:
 
 * [🚀 Getting Started](./docs/getting-started.md)
 * [📦 Store](./docs/store.md)
+* [📂 Component Organization](./docs/component-organization.md)
 * [⚖️ License](./LICENCE.md)
 
 ---
@@ -100,7 +109,7 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 Easily scaffold new components or features with:
 
 ```bash
-yarn generate
+npm run generate
 ```
 
 ### 📂 Component Structure
@@ -146,6 +155,38 @@ src/features/[name]/
 
 ---
 
+## 📚 Examples of Use
+
+### Running the Development Server
+
+```bash
+npm run start
+```
+
+### Running Tests
+
+```bash
+npm run test
+```
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+---
+
+## ❓ FAQ
+
+### What is the minimum Node.js version required?
+Node.js version 16 or higher is required.
+
+### Can I use npm instead of npm run?
+Yes, but npm run is recommended for consistency.
+
+---
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -165,3 +206,13 @@ This project is licensed under the [CC0](./LICENCE.md).
 ## 🌟 Acknowledgements
 
 This starter was inspired by best practices and setups from the React community, with the goal of helping teams build robust and maintainable apps faster.
+
+---
+
+## 🔗 Useful Links
+
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Jest Documentation](https://jestjs.io/docs/getting-started)
+- [Cypress Documentation](https://docs.cypress.io/)
