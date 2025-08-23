@@ -3,7 +3,6 @@
 </div>
 
 # ⚡️ Fast and Scalable React Project
----
 
 [![License](https://img.shields.io/github/license/luciancaetano/startercraft?color=blue)](./LICENCE.md)
 [![Contributors](https://img.shields.io/github/contributors/luciancaetano/startercraft)](https://github.com/luciancaetano/startercraft/graphs/contributors)
