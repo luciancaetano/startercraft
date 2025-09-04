@@ -1,0 +1,30 @@
+name: Weekly Dependency Update Report
+
+on:
+  schedule:
+    - cron: '0 12 * * 1' # Toda segunda-feira às 9h da manhã no Brasil (12h UTC)
+  workflow_dispatch:
+
+jobs:
+  ncu-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install npm-check-updates
+        run: npm install -g npm-check-updates
+
+      - name: Run npm-check-updates and save report
+        run: ncu > ncu-report.txt
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncu-report
+          path: ncu-report.txt

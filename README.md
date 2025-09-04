@@ -38,6 +38,7 @@ Replace `my-awesome-scalable-project` with your desired project name. This comma
 * [⚙️ Code Generation](#%EF%B8%8F-code-generation)
 * [🧩 Why This Structure?](#-why-this-structure)
 * [📚 Examples of Use](#-examples-of-use)
+* [🔄 Dependency Workflows](./docs/workflows-deps.md)
 * [❓ FAQ](#-faq)
 * [🤝 Contributing](#-contributing)
 * [📜 License](#-license)
