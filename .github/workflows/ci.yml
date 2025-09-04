@@ -16,7 +16,7 @@ jobs:
           node-version: "22.18.0"
       - run: npm ci
       - run: npm run build
-      - run: npm run test:jest
+      - run: npm run test
       - run: npm run lint
       - run: npm run check-format
       - run: npm run check-types
