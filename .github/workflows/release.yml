@@ -20,7 +20,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup NodeJS
         uses: actions/setup-node@v4
@@ -55,8 +55,12 @@ jobs:
           else
             npm version ${{ github.event.inputs.release_type }} -m "chore(release): %s [skip ci]"
           fi
-          echo "version=$(node -p 'require(\"./package.json\").version')" >> $GITHUB_OUTPUT
 
+      - name: Get package version
+        id: get_version
+        run: |
+          version=$(npm pkg get version | tr -d '"')
+          echo "version=$version" >> $GITHUB_OUTPUT
 
       - name: Push commit e tag
         run: |
