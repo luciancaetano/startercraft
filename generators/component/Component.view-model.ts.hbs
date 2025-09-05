@@ -1,16 +1,8 @@
-import { useCallback, useState } from 'react';
 import { {{pascalCase name}}Props } from './{{kebabCase name}}.types';
 
 function use{{pascalCase name}}ViewModel({ }: {{pascalCase name}}Props) {
-const [counter, setCounter] = useState(0);
-const handleIncClick = useCallback(() => {
-setCounter((c) => c + 1);
-}, []);
-
 
 return {
-handleIncClick,
-counter,
 };
 }
 

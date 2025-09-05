@@ -7,13 +7,11 @@ import use{{pascalCase name}}ViewModel from './{{ kebabCase name }}.view-model';
 function {{ pascalCase name }}(props: {{ pascalCase name }}Props) {
 const { children, className, testingID, style } = props;
 
-const { counter, handleIncClick } = use{{pascalCase name}}ViewModel(props);
+const { } = use{{pascalCase name}}ViewModel(props);
 
 return (
 <div className={clsx('{{ kebabCase name }}', styles.{{ camelCase name }}, className)} data-testid={testingID} style={style}>
   {children}
-  <div>{counter}</div>
-  <button onClick={handleIncClick}>Increment</button>
 </div>
 );
 }
