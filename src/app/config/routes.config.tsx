@@ -1,7 +1,7 @@
 import MainLayout from '@components/layouts/main-layout';
 import HomePage from '@components/pages/home-page';
 import NotFoundPage from '@components/pages/not-found-page';
-import { Navigate, Outlet, RouteObject } from 'react-router-dom';
+import { Outlet, RouteObject } from 'react-router-dom';
 
 export default [
   {
@@ -12,18 +12,8 @@ export default [
       </MainLayout>
     ),
     children: [
-      {
-        path: '',
-        element: <HomePage />,
-      },
+      { path: '', element: <HomePage /> },
+      { path: '*', element: <NotFoundPage /> },
     ],
-  },
-  {
-    path: '/login',
-    element: <Navigate to="/" />,
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
   },
 ] as RouteObject[];

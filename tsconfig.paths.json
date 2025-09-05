@@ -5,6 +5,9 @@
       "@features/*": [
         "./src/app/features/*"
       ],
+      "@locales/*": [
+        "./src/locales/*"
+      ],
       "@http/*": [
         "./src/http/*"
       ],

@@ -11,7 +11,7 @@ function MainLayout(props: MainLayoutProps) {
       <div className="flex h-screen overflow-hidden">
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           <main className="flex flex-1 overflow-x-auto w-full bg-gray-100 dark:bg-transparent">
-            <div className="flex flex-1 mx-auto p-2 md:p-4 2xl:p-8">{children}</div>
+            <div className="flex flex-1">{children}</div>
           </main>
         </div>
       </div>

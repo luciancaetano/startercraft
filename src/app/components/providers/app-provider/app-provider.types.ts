@@ -1,5 +1,5 @@
-import React from 'react';
+import { RouteObject } from 'react-router-dom';
 
-export interface AppProviderProps extends React.PropsWithChildren<object> {
-  styles?: React.CSSProperties;
+export interface AppProviderProps {
+  routes: RouteObject[];
 }

@@ -10,7 +10,11 @@ function BlinkButton(props: BlinkButtonProps) {
       {...rest}
       onClick={onClick}
       className={clsx(
-        'btn',
+        'px-6',
+        'py-3',
+        'text-white',
+        'cursor-pointer',
+        'rounded-lg',
         'transition',
         'duration-500',
         'ease-in-out',

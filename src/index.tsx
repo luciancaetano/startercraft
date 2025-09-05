@@ -1,7 +1,8 @@
 /// <reference types="vite/client" />
+/// <reference types="./i18next.d.ts" />
 import './index.css';
 import '@fontsource/roboto';
-import '@lib/i18n/configure';
+import '@config/i18n.config';
 import App from './app';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';

@@ -3,16 +3,14 @@ import ErrorFallback from './components/error-fallback';
 import Loader from '@components/elements/loader';
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { HashRouter as Router } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 
 function AppProvider(props: AppProviderProps) {
-  const { children } = props;
-
+  const { routes } = props;
+  const element = useRoutes(routes);
   return (
     <React.Suspense fallback={<Loader />}>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Router>{children}</Router>
-      </ErrorBoundary>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>{element}</ErrorBoundary>
     </React.Suspense>
   );
 }
