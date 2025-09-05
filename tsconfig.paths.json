@@ -20,9 +20,6 @@
       "@hooks/*": [
         "./src/app/hooks/*"
       ],
-      "@lib/*": [
-        "./src/lib/*"
-      ],
       "@store/*": [
         "./src/app/store/*"
       ],

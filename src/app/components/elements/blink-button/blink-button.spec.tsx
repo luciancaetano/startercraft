@@ -1,5 +1,5 @@
 import BlinkButton from './index';
-import { render } from '@lib/tests';
+import { render } from '@testing-library/react';
 import { vi } from 'vitest';
 
 describe('BlinkButton', () => {

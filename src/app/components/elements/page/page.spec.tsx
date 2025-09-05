@@ -1,5 +1,5 @@
 import Page from './index';
-import { render } from '@lib/tests';
+import { render } from '@testing-library/react';
 
 describe('Page Component', () => {
   it('should render', () => {

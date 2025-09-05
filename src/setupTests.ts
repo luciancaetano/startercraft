@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import i18n from '@lib/i18n/configure';
+import i18n from '@config/i18n.config';
 import '@testing-library/jest-dom/vitest';
 
 vi.mock('@lib/i18n', () => ({

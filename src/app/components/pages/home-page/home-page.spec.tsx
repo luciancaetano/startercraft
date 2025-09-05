@@ -1,5 +1,5 @@
 import HomePage from './home-page';
-import { render } from '@lib/tests';
+import { render } from '@testing-library/react';
 
 describe('HomePage Component', () => {
   it('should render', () => {

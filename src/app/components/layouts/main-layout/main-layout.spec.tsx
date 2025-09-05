@@ -1,5 +1,5 @@
 import MainLayout from './index';
-import { render } from '@lib/tests';
+import { render } from '@testing-library/react';
 
 describe('MainLayout Component', () => {
   it('should render', () => {
