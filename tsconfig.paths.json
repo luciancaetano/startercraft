@@ -5,8 +5,8 @@
       "@features/*": [
         "./src/app/features/*"
       ],
-      "@http/api": [
-        "./src/http/api/index.ts"
+      "@http/*": [
+        "./src/http/*"
       ],
       "@components/*": [
         "./src/app/components/*"

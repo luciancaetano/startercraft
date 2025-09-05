@@ -4,7 +4,6 @@ import useHomePageViewModel from './home-page.view-model';
 import logo from '@assets/images/startercraft.png';
 import BlinkButton from '@components/elements/blink-button';
 import Page from '@components/elements/page';
-import { withResourceBundle } from '@lib/i18n';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -94,4 +93,4 @@ function HomePage(props: HomePageProps) {
   );
 }
 
-export default React.memo(withResourceBundle(HomePage, () => import('./translations')));
+export default React.memo(HomePage);

@@ -1,8 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-{{#if wantI18n}}
-import { withResourceBundle } from '@lib/i18n';
-{{/if}}
 import { {{ pascalCase name }}Props } from './{{ kebabCase name }}.types';
 import styles from './{{ kebabCase name }}.module.scss';
 import use{{pascalCase name}}ViewModel from './{{ kebabCase name }}.view-model';
@@ -21,8 +18,4 @@ return (
 );
 }
 
-{{#if wantI18n}}
-export default React.memo(withResourceBundle( {{ pascalCase name }} , () => import('./translations')));
-{{else}}
 export default React.memo({{ pascalCase name }});
-{{/if}}

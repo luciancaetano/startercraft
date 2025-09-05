@@ -1,155 +1,115 @@
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require("node:fs");
+const path = require("node:path");
 
-const featuresDir = path.join(process.cwd(), 'src/app/features');
-const features = fs.readdirSync(featuresDir);
+const featuresDir = path.resolve(process.cwd(), "src/app/features");
+const features = fs.readdirSync(featuresDir).filter((f) => f !== ".gitkeep");
 
-function applySuffix(name = '', type = '') {
-  if (type.toLowerCase().trim().endsWith('layout')) {
-    return name + '-layout';
-  }
+const componentTypePathsMap = {
+  element: "elements",
+  layout: "layouts",
+  page: "pages",
+};
 
-  if (type.toLowerCase().trim().endsWith('page')) {
-    return name + '-page';
-  }
+/**
+ * @param {string} name
+ * @param {string} type
+ * @returns {string}
+ */
+function applySuffix(name = "", type = "") {
+  const normalizedType = type.toLowerCase().trim();
+
+  if (normalizedType.endsWith("layout")) return `${name}-layout`;
+  if (normalizedType.endsWith("page")) return `${name}-page`;
 
   return name;
 }
 
-const componentTypePathsMap = {
-  element: 'elements',
-  layout: 'layouts',
-  page: 'pages',
-};
+/**
+ * @param {string} feature
+ * @param {string} componentType
+ * @returns {string}
+ */
+function resolveBasePath(feature, componentType) {
+  const componentDir = componentTypePathsMap[componentType];
+
+  if (!feature || feature === "APP") {
+    return `src/app/components/${componentDir}`;
+  }
+
+  return `src/app/features/{{feature}}/components/${componentDir}`;
+}
 
 /**
- *
  * @type {import('plop').PlopGenerator}
  */
 module.exports = {
-  description: 'Component Generator',
+  description: "Component Generator",
+
   prompts: [
     {
-      type: 'list',
-      name: 'componentType',
-      message: 'Select Component Type',
-      choices: ['element', 'layout', 'page'],
+      type: "list",
+      name: "componentType",
+      message: "Select Component Type",
+      choices: Object.keys(componentTypePathsMap),
     },
     {
-      type: 'input',
-      name: 'name',
-      message: 'component name',
-      validate: (value) => {
-        if (!value.trim()) {
-          return 'component name is required';
-        }
-
-        return true;
-      },
-      filter: (value, answers) => {
-        return applySuffix(value, answers.componentType);
-      },
+      type: "input",
+      name: "name",
+      message: "Component name",
+      validate: (value) =>
+        value.trim() ? true : "Component name is required",
+      filter: (value, answers) =>
+        applySuffix(value, answers.componentType),
     },
     {
-      type: 'confirm',
-      name: 'wantI18n',
-      message: 'Do you want i18n?',
-      default: true,
-    },
-    {
-      type: 'list',
-      name: 'feature',
-      message: 'Select Feature',
-      choices: ['APP', ...features].filter((f) => f !== '.gitkeep'),
+      type: "list",
+      name: "feature",
+      message: "Select Feature",
+      choices: ["APP", ...features],
       when: () => features.length > 0,
     },
   ],
-  actions: (result) => {
-    const basePath =
-      !result.feature || result.feature === 'APP'
-        ? `src/app/components/${componentTypePathsMap[result.componentType]}`
-        : `src/app/features/{{feature}}/components/${componentTypePathsMap[result.componentType]}`;
 
-    const useStyles =
-      result.componentType === 'element' ||
-      result.componentType === 'layout' ||
-      result.componentType === 'page';
+  actions: (data) => {
+    const { componentType, feature } = data;
+    const basePath = resolveBasePath(feature, componentType);
 
-    const wantI18n = result.wantI18n;
-
-    const isPage = result.componentType === 'page';
+    const isPage = componentType === "page";
+    const needsStyles = ["element", "layout", "page"].includes(componentType);
 
     const actions = [
       {
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/index.ts',
-        templateFile: !isPage
-          ? 'generators/component/Component.index.ts.hbs'
-          : 'generators/component/Page.index.ts.hbs',
+        type: "add",
+        path: `${basePath}/{{kebabCase name}}/index.ts`,
+        templateFile: `generators/component/${isPage ? "Page" : "Component"}.index.ts.hbs`,
       },
       {
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.tsx',
-        templateFile: isPage
-          ? 'generators/component/Page.tsx.hbs'
-          : 'generators/component/Component.tsx.hbs',
+        type: "add",
+        path: `${basePath}/{{kebabCase name}}/{{kebabCase name}}.tsx`,
+        templateFile: `generators/component/${isPage ? "Page" : "Component"}.tsx.hbs`,
       },
       {
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.types.ts',
-        templateFile: !isPage
-          ? 'generators/component/Component.types.ts.hbs'
-          : 'generators/component/Page.types.ts.hbs',
+        type: "add",
+        path: `${basePath}/{{kebabCase name}}/{{kebabCase name}}.types.ts`,
+        templateFile: `generators/component/${isPage ? "Page" : "Component"}.types.ts.hbs`,
       },
       {
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.view-model.ts',
-        templateFile: 'generators/component/Component.view-model.ts.hbs',
+        type: "add",
+        path: `${basePath}/{{kebabCase name}}/{{kebabCase name}}.view-model.ts`,
+        templateFile: "generators/component/Component.view-model.ts.hbs",
       },
       {
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.spec.tsx',
-        templateFile: !isPage
-          ? 'generators/component/Component.spec.tsx.hbs'
-          : 'generators/component/Page.spec.tsx.hbs',
+        type: "add",
+        path: `${basePath}/{{kebabCase name}}/{{kebabCase name}}.spec.tsx`,
+        templateFile: `generators/component/${isPage ? "Page" : "Component"}.spec.tsx.hbs`,
       },
     ];
 
-    if (isPage) {
+    if (needsStyles) {
       actions.push({
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.routes.tsx',
-        templateFile: 'generators/component/Component.routes.tsx.hbs',
-      });
-    }
-
-    if (useStyles) {
-      actions.push({
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/{{kebabCase name}}.module.scss',
-        templateFile: !isPage
-          ? 'generators/component/Component.module.scss.hbs'
-          : 'generators/component/Page.module.scss.hbs',
-      });
-    }
-
-    if (wantI18n) {
-      actions.push({
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/translations/index.ts',
-        templateFile: 'generators/component/translations/index.ts.hbs',
-      });
-
-      actions.push({
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/translations/en/index.ts',
-        templateFile: 'generators/component/translations/en/index.ts.hbs',
-      });
-
-      actions.push({
-        type: 'add',
-        path: basePath + '/{{kebabCase name}}/translations/pt-BR/index.ts',
-        templateFile: 'generators/component/translations/pt-BR/index.ts.hbs',
+        type: "add",
+        path: `${basePath}/{{kebabCase name}}/{{kebabCase name}}.module.scss`,
+        templateFile: `generators/component/${isPage ? "Page" : "Component"}.module.scss.hbs`,
       });
     }
 

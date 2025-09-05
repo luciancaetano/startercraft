@@ -1,15 +1,8 @@
 import { useCallback, useState } from 'react';
 import { {{pascalCase name}}Props } from './{{kebabCase name}}.types';
 
-{{#if wantI18n}}
-import { useTranslation } from '@lib/i18n';
-{{/if}}
-
 function use{{pascalCase name}}ViewModel({ }: {{pascalCase name}}Props) {
 const [counter, setCounter] = useState(0);
-{{#if wantI18n}}
-const { t } = useTranslation();
-{{/if}}
 const handleIncClick = useCallback(() => {
 setCounter((c) => c + 1);
 }, []);
@@ -18,9 +11,6 @@ setCounter((c) => c + 1);
 return {
 handleIncClick,
 counter,
-{{#if wantI18n}}
-t,
-{{/if}}
 };
 }
 
