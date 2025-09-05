@@ -1,7 +1,7 @@
 {
   "name": "startercraft-template",
   "description": "An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "private": true,
   "type": "module",
   "author": {
