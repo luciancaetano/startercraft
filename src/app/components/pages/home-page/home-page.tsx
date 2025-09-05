@@ -16,7 +16,7 @@ const HomePage: React.FC<HomePageProps> = ({ className, testingID }) => {
       testingID={testingID}
     >
       {/* Gradient background using logo colors */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#3f1f69] to-[#4c137a]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#312e81] to-[#7420b9]" />
 
       <img src={logo} alt="Startercraft Logo" className="w-56 h-auto drop-shadow-lg" />
 
