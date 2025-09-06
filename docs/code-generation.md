@@ -3,14 +3,25 @@
 This project includes a code generation tool powered by [Plop.js](https://plopjs.com/), which simplifies the creation of components, features, providers, and subcomponents. This tool ensures consistency and speeds up development by scaffolding files with predefined templates.
 
 ## How to Use
+**Note:** The templates for each generator are located in the `generators` folder by default. You can modify these templates locally to fit your needs, but do not change the file or folder names to ensure the generators work correctly.
 
-To generate code, use the following command:
+You can generate code in two ways:
 
+**Interactive mode:**
 ```bash
 npm run generate
 ```
+You will be guided by prompts to choose the type and name of the code to be generated.
 
-You will be prompted to select the type of code you want to generate and provide additional details (e.g., name of the component).
+**Direct mode:**
+```bash
+npm run generate <type> <name>
+```
+For example, to create a component called `MyButton` of type `element`:
+```bash
+npm run generate element MyButton
+```
+This will automatically generate the code without interactive prompts.
 
 ## Available Generators
 
@@ -30,6 +41,11 @@ src/components/[type]/[name]/
 
 * **[type]** → `element`, `provider`, `page`, or `layout`
 * **[name]** → The component name
+
+Example of direct usage:
+```bash
+npm run generate element MyButton
+```
 
 ### Feature Generator
 
@@ -100,3 +116,4 @@ Ensure the generator is implemented as a valid function in its respective folder
 
 - The templates for each generator are located in their respective folders under `generators/`.
 - The `npm run generate` script is pre-configured to invoke Plop.js.
+
