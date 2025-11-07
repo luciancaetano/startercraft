@@ -85,7 +85,7 @@ This starter ships with everything you need to build production-grade React apps
 Before you begin, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (version 16 or higher)
-- [npm run](https://npm runpkg.com/) (preferred over npm)
+- [yarn](https://yarnpkg.com/) (preferred over npm)
 
 ---
 
@@ -96,7 +96,7 @@ Before you begin, ensure you have the following installed:
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-npm run install
+yarn install
 ```
 
 ---
@@ -109,16 +109,16 @@ Commonly used commands from `package.json`:
 
 | Command              | Description                                    |
 | -------------------- | ---------------------------------------------- |
-| `npm run start`      | Start the development server                   |
-| `npm run build`      | Compile the application for production         |
-| `npm run preview`    | Preview the production build                   |
-| `npm run test`       | Run all tests                                  |
-| `npm run test:unit`  | Run unit tests (Vitest)                        |
-| `npm run test:coverage` | Run tests with coverage report               |
-| `npm run lint`       | Run ESLint                                     |
-| `npm run serve`      | Serve the production build locally             |
-| `npm run generate`   | Run the code generator for components/features |
-| `npm run validate`   | Type-check, lint, and run tests                |
+| `yarn start`         | Start the development server                   |
+| `yarn build`         | Compile the application for production         |
+| `yarn preview`       | Preview the production build                   |
+| `yarn test`          | Run all tests                                  |
+| `yarn test:unit`     | Run unit tests (Vitest)                        |
+| `yarn test:coverage` | Run tests with coverage report                 |
+| `yarn lint`          | Run ESLint                                     |
+| `yarn serve`         | Serve the production build locally             |
+| `yarn generate`      | Run the code generator for components/features |
+| `yarn validate`      | Type-check, lint, and run tests                |
 
 ---
 
@@ -150,7 +150,7 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 Easily scaffold new components or features with:
 
 ```bash
-npm run generate
+yarn generate
 ```
 
 ### 📂 Component Structure
@@ -221,19 +221,19 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 ### Running the Development Server
 
 ```bash
-npm run start
+yarn start
 ```
 
 ### Running Tests
 
 ```bash
-npm run test
+yarn test
 ```
 
 ### Building for Production
 
 ```bash
-npm run build
+yarn build
 ```
 
 ---
@@ -245,13 +245,13 @@ npm run build
 ### What is the minimum Node.js version required?
 Node.js version 16 or higher is required. Using the latest LTS version is recommended for better stability and support.
 
-### Can I use npm instead of npm run?
-Yes, but using `npm run` is recommended for consistency and to ensure compatibility with the predefined scripts in the project.
+### Can I use npm instead of yarn?
+Yes, but using `yarn` is recommended for consistency and to ensure compatibility with the predefined scripts in the project.
 
 ### How do I add a new feature or component?
 Use the code generation tool by running:
 ```bash
-npm run generate
+yarn generate
 ```
 Follow the prompts to scaffold the desired feature or component.
 
