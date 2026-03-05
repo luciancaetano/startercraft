@@ -4,6 +4,80 @@ This document describes the domain layer introduced to enforce clean separation 
 
 ---
 
+## Architecture Overview
+
+```mermaid
+graph TB
+  subgraph View Layer
+    V["<b>View</b><br/>[name].tsx<br/><i>JSX · styling · UI markup</i>"]
+  end
+
+  subgraph ViewModel Layer
+    VM["<b>ViewModel</b><br/>[name].view-model.ts<br/><i>useState · useEffect · useCallback</i>"]
+  end
+
+  subgraph Domain Layer
+    direction LR
+    S["<b>Services</b><br/>[name].service.ts<br/><i>business logic · API calls<br/>persistence · side effects</i>"]
+    M["<b>Models</b><br/>[name].model.ts<br/><i>types · interfaces · enums<br/>domain entities</i>"]
+    S -->|imports| M
+  end
+
+  subgraph Component Files
+    direction LR
+    T["<b>Types</b><br/>[name].types.ts<br/><i>UI prop types</i>"]
+    SPEC["<b>Tests</b><br/>[name].spec.tsx"]
+    SCSS["<b>Styles</b><br/>[name].module.scss"]
+  end
+
+  V -->|consumes| VM
+  V -->|reads| T
+  VM -->|delegates to| S
+  VM -->|imports types| M
+  T -->|extends| M
+  SPEC -.->|tests| V
+  SPEC -.->|tests| S
+```
+
+### Dependency Flow
+
+```mermaid
+flowchart LR
+  Models["🟦 Models<br/><i>leaf layer</i>"]
+  Services["🟩 Services"]
+  ViewModels["🟨 ViewModels"]
+  Views["🟧 Views"]
+
+  Views --> ViewModels --> Services --> Models
+  ViewModels --> Models
+
+  style Models fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  style Services fill:#d1fae5,stroke:#10b981,color:#065f46
+  style ViewModels fill:#fef9c3,stroke:#eab308,color:#713f12
+  style Views fill:#ffedd5,stroke:#f97316,color:#7c2d12
+```
+
+### Data & Control Flow (runtime)
+
+```mermaid
+sequenceDiagram
+  participant V as View (.tsx)
+  participant VM as ViewModel (hook)
+  participant S as Service
+  participant M as Model (types)
+
+  V->>VM: calls hook
+  VM->>S: delegates business logic
+  S->>S: executes rules / API / persistence
+  S-->>VM: returns result
+  VM-->>V: returns state + handlers
+  V->>V: renders JSX
+
+  Note over M: Types are used at compile-time<br/>by all layers via imports
+```
+
+---
+
 ## Problem Statement
 
 Previously, all business logic lived inside React hooks (view-model files). This created several issues:
