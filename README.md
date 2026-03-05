@@ -27,6 +27,7 @@ Replace `my-awesome-scalable-project` with your desired project name. This comma
 
 * [📦 Store](./docs/store.md)
 * [📂 Component Organization](./docs/component-organization.md)
+* [🏛️ Domain Layer](./docs/domain-layer.md)
 * [⚙️ Code Generation](./docs/code-generation.md)
 * [🧩 What is a Feature?](./docs/feature-definition.md)
 * [⚖️ License](./LICENCE.md)
@@ -130,14 +131,13 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 
 | Alias           | Path                     | Description                          |
 | --------------- | ------------------------ | ------------------------------------ |
-| `@feature/*`    | `./src/app/features/*`   | Feature modules                      |
+| `@features/*`   | `./src/app/features/*`   | Feature modules                      |
 | `@components/*` | `./src/app/components/*` | Reusable UI components               |
 | `@config/*`     | `./src/app/config/*`     | Configurations                       |
+| `@domain/*`     | `./src/app/domain/*`     | Domain models, types & services      |
 | `@hooks/*`      | `./src/app/hooks/*`      | Custom React hooks                   |
-| `@lib/*`        | `./src/lib/*`            | Utility libraries                    |
-| `@providers/*`  | `./src/app/providers/*`  | Context or data providers            |
+| `@locales/*`    | `./src/locales/*`        | Internationalization resources        |
 | `@store/*`      | `./src/app/store/*`      | Global store                         |
-| `@app/types/*`  | `./src/app/types/*`      | TypeScript types & interfaces        |
 | `@utils/*`      | `./src/app/utils/*`      | Utility functions                    |
 | `@assets/*`     | `./src/assets/*`         | Static assets (images, icons, fonts) |
 

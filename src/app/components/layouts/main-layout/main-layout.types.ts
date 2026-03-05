@@ -1,4 +1,4 @@
-import { ITestableProps } from '@app/types/testing';
+import { ITestableProps } from '@domain/models';
 import React from 'react';
 
 export interface MainLayoutProps extends React.PropsWithChildren<object>, ITestableProps {

@@ -8,9 +8,6 @@
       "@locales/*": [
         "./src/locales/*"
       ],
-      "@http/*": [
-        "./src/http/*"
-      ],
       "@components/*": [
         "./src/app/components/*"
       ],
@@ -23,17 +20,14 @@
       "@store/*": [
         "./src/app/store/*"
       ],
-      "@app/types/*": [
-        "./src/app/types/*"
-      ],
       "@utils/*": [
         "./src/app/utils/*"
       ],
       "@assets/*": [
         "./src/assets/*"
       ],
-      "@api/*": [
-        "./src/app/http/api/*"
+      "@domain/*": [
+        "./src/app/domain/*"
       ]
     }
   }

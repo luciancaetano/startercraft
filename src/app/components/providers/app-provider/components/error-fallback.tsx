@@ -13,7 +13,7 @@ function ErrorFallback(props: FallbackProps) {
         </p>
 
         <div className="bg-gray-800 p-4 rounded-lg shadow-lg m-8 max-w-full">
-          <code className="text-green-400 whitespace-pre-wrap">{props.error?.message}</code>
+          <code className="text-green-400 whitespace-pre-wrap">{(props.error as { message?: string })?.message}</code>
         </div>
 
         <div className="flex justify-center">
