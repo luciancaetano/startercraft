@@ -8,17 +8,17 @@
 
 ## 2. Domain Layer
 
-- All domain types, shared interfaces, and business entities live in `src/app/domain/models/`.
-  - File naming: `[name].model.ts`
-  - Must be framework-agnostic (no React imports)
-  - Exported via barrel file `models/index.ts`
-- All business logic, API communication, and persistence live in `src/app/domain/services/`.
-  - File naming: `[name].service.ts`
-  - Export as namespace objects (e.g., `export const FooService = { ... }`)
-  - Services may import from models but never from React or UI code
-  - Exported via barrel file `services/index.ts`
-- Use `@domain/models` for types and `@domain/services` for business logic.
-- The old `@app/types/*` and `@http/*` aliases have been removed. Use `@domain/*` instead.
+All domain code lives in `src/app/domain/` and is accessible via `@domain/*`.
+
+- **Models** (`domain/models/[name].model.ts`) - Domain types, interfaces, enums. Framework-agnostic, no React.
+- **Services** (`domain/services/[name].service.ts`) - Business logic and orchestration. Export as namespace objects. May import models, repositories, validators, constants.
+- **Repositories** (`domain/repositories/[name].repository.ts`) - Data access (API calls, localStorage, IndexedDB). The only layer that talks to external systems. Returns domain models via mappers.
+- **Validators** (`domain/validators/[name].validator.ts`) - Pure validation rules. No side effects.
+- **Mappers** (`domain/mappers/[name].mapper.ts`) - Transform DTOs to/from domain models. Pure functions.
+- **DTOs** (`domain/dtos/[name].dto.ts`) - API request/response type contracts. Mirror the API shape exactly. Never used directly in UI.
+- **Constants** (`domain/constants/[name].constants.ts`) - Domain enums, config values, storage keys.
+
+Each sublayer has a barrel `index.ts`. The old `@app/types/*` and `@http/*` aliases have been removed.
 
 ## 3. Component Organization and MVVM Pattern
 
@@ -50,7 +50,9 @@
 - Maintain type safety throughout the codebase.
 - Keep logic and UI separated (MVVM + Domain Layer).
 - Business logic belongs in `domain/services/`, not in view-models or components.
+- Data access belongs in `domain/repositories/`, not in services or view-models.
 - Domain types belong in `domain/models/`, not in component `types.ts` files.
+- API shapes belong in `domain/dtos/`, mapped to models via `domain/mappers/`.
 - Use barrel files (`index.ts`) for clean imports.
 - Follow the documented folder structures for all new code.
 
