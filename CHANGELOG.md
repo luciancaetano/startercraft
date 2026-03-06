@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1]
+
+### Tests
+
+- Added **unit tests for 90%+ coverage** across components and domain services:
+  - `ColorModeService` — full coverage with `matchMedia` handling and localStorage persistence
+  - `NavigationService` — `window.open` delegation tests
+  - `DarkModeSwitch` — view and view-model tests
+  - `BlinkButton` — view-model tests
+  - `HomePage` — view-model tests with `NavigationService` mocking
+  - `NotFoundPage` — view and view-model tests
+  - `ErrorFallback` — rendering and reset callback tests
+
+### Fixed
+
+- **ESLint config** — added `vitest/globals` to language options and adjusted `@stylistic` rules (`jsx-pascal-case` ignore pattern)
+- **Generators** — updated component, page, and provider templates to align with current MVVM conventions (simplified types, consistent prop interfaces, added `Page.view-model.ts.hbs`)
+- **Vite config** — fixed `vite.config.ts` and `vitest.config.ts` test configuration (`globals`, `css.modules`, `setupFiles`)
+
+### Changed
+
+- **Documentation** — updated `CLAUDE.md`, `copilot-instructions.md`, `README.md`, `docs/testing-guide.md`, `docs/code-generation.md`, `docs/domain-layer.md`, `docs/workflows-deps.md`, and `docs/feature-definition.md` with testing strategy sections and minor corrections
+- **Package scripts** — added `test:ui` script for Vitest UI
+- **ColorModeService** — minor refactor (`getColorMode` consistency)
+- **ErrorFallback** — simplified button `onClick` handler
+- **Component types** — simplified `IBlinkButtonProps` and `IPageProps` interfaces
+- **`src/index.tsx`** — minor cleanup of `reportWebVitals` implementation
+
+---
+
 ## [1.4.0]
 
 ### Removed

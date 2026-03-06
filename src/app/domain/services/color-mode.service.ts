@@ -1,4 +1,4 @@
-import type { ColorMode, ColorModePreference } from 'app/domain/models';
+import type { ColorMode, ColorModePreference } from '@domain/models';
 
 const STORAGE_KEY = 'app-color-mode';
 
