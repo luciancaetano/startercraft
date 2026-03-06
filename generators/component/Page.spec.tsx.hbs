@@ -1,16 +1,15 @@
 import { render } from '@testing-library/react';
-import {{pascalCase name}} from './{{kebabCase name}}';
+import {{ pascalCase name }} from './index';
 
-describe('{{pascalCase name}} Component', () => {
-it('should render', () => {
-const { container } = render(
-<{{pascalCase name}} />);
-expect(container).toBeTruthy();
-});
+describe('{{ pascalCase name }} Component', () => {
+  it('should render', () => {
+    const { container } = render(<{{ pascalCase name }} />);
+    expect(container).toBeTruthy();
+  });
 
-it('should render with children and className', () => {
-const { container } = render(<{{pascalCase name}} className="test"></{{pascalCase name}}>);
+  it('should render with className', () => {
+    const { container } = render(<{{ pascalCase name }} className="test" />);
 
-expect(container.querySelector('.test')).toBeTruthy();
-});
+    expect(container.querySelector('.test')).toBeTruthy();
+  });
 });

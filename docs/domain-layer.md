@@ -190,12 +190,24 @@ Services orchestrate business rules and coordinate between repositories, validat
 Example:
 ```ts
 // color-mode.service.ts
-import type { ColorMode } from '../models';
+import type { ColorMode, ColorModePreference } from '../models';
 import { ColorModeRepository } from '../repositories';
 
 export const ColorModeService = {
-  resolvePreference(): ColorModePreference { ... },
-  toggle(current: ColorMode): ColorMode { ... },
+  resolvePreference(): ColorModePreference {
+    const saved = ColorModeRepository.load();
+    if (saved) return { mode: saved, source: 'user' };
+    return { mode: ColorModeRepository.getSystemPreference(), source: 'system' };
+  },
+  toggle(current: ColorMode): ColorMode {
+    return current === 'dark' ? 'light' : 'dark';
+  },
+  savePreference(mode: ColorMode): void {
+    ColorModeRepository.save(mode);
+  },
+  applyToDocument(mode: ColorMode): void {
+    ColorModeRepository.applyToDocument(mode);
+  },
 };
 ```
 
@@ -218,6 +230,20 @@ export const ColorModeRepository = {
   },
   save(mode: ColorMode): void {
     localStorage.setItem('color-mode', mode);
+  },
+  getSystemPreference(): ColorMode {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    return 'light';
+  },
+  applyToDocument(mode: ColorMode): void {
+    if (mode === 'dark') {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+    document.body.setAttribute('data-theme', mode);
   },
 };
 ```

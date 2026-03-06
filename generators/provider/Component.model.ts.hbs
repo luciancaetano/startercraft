@@ -1,20 +1,9 @@
-import { useCallback, useState } from 'react';
-import { {{pascalCase name}}Props } from './{{kebabCase name}}.types';
+import { {{ pascalCase name }}Props } from './{{ kebabCase name }}.types';
 
-function use{{pascalCase name}}Model({ }: {{pascalCase name}}Props) {
-const [value, setValue] = useState(0);
+function use{{ pascalCase name }}Model({ }: {{ pascalCase name }}Props) {
 
-const decrement = useCallback(() => {
-setValue((prev) => prev - 1);
-}, []);
-
-const increment = useCallback(() => {
-setValue((prev) => prev + 1);
-}, []);
-
-return {
-value, decrement, increment,
-};
+  return {
+  };
 }
 
-export default use{{pascalCase name}}Model;
+export default use{{ pascalCase name }}Model;

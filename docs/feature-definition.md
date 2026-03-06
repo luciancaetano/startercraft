@@ -1,7 +1,7 @@
 
 # What is a Feature?
 
-In the context of this project, a **feature** is a cohesive grouping of logic, UI, hooks, types, utilities, and configurations that implement a relevant behavior or capability for the user or product domain. A feature may include pages, components, hooks, providers, layouts, and other artifacts, all organized in a dedicated folder under `src/features/[name]/`.
+In the context of this project, a **feature** is a cohesive grouping of logic, UI, hooks, types, utilities, and configurations that implement a relevant behavior or capability for the user or product domain. A feature may include pages, components, hooks, providers, layouts, and other artifacts, all organized in a dedicated folder under `src/app/features/[name]/`.
 
 ## What can be a Feature?
 

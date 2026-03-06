@@ -1,19 +1,19 @@
 import React from 'react';
 
 import {{ pascalCase name }}ContextProvider from './{{ kebabCase name }}.context';
-import { {{ pascalCase name }}Props } from './{{ kebabCase name }}.types';
+import { {{ pascalCase name }}Props, {{ pascalCase name }}ContextType } from './{{ kebabCase name }}.types';
 import use{{ pascalCase name }}Model from './{{ kebabCase name }}.model';
 
 function {{ pascalCase name }}(props: {{ pascalCase name }}Props) {
-const { children } = props;
+  const { children } = props;
 
-const { value, decrement, increment } = use{{ pascalCase name }}Model(props);
+  const contextValue: {{ pascalCase name }}ContextType = use{{ pascalCase name }}Model(props);
 
-return (
-<{{ pascalCase name }}ContextProvider value={ { value, decrement, increment } }>
-  {children}
-</{{ pascalCase name }}ContextProvider>
-);
+  return (
+    <{{ pascalCase name }}ContextProvider value={contextValue}>
+      {children}
+    </{{ pascalCase name }}ContextProvider>
+  );
 }
 
 export default React.memo({{ pascalCase name }});

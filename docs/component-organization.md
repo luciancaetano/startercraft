@@ -17,7 +17,7 @@ src/app/components/[type]/[name]/
 │── [name].tsx            # Component view (View)
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
-│── [name].types.ts       # Types & interfaces (Model)
+│── [name].types.ts       # UI prop types & interfaces
 │── [name].view-model.ts  # View-model / logic (ViewModel)
 │── index.ts              # Public exports
 ```

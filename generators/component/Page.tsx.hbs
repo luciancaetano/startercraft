@@ -2,19 +2,19 @@ import React from 'react';
 import clsx from 'clsx';
 import { {{ pascalCase name }}Props } from './{{ kebabCase name }}.types';
 import styles from './{{ kebabCase name }}.module.scss';
-import use{{pascalCase name}}ViewModel from './{{ kebabCase name }}.view-model';
+import use{{ pascalCase name }}ViewModel from './{{ kebabCase name }}.view-model';
 import Page from '@components/elements/page';
+
 function {{ pascalCase name }}(props: {{ pascalCase name }}Props) {
-const { className, testingID, style } = props;
+  const { className, testingID, style } = props;
 
-const { counter, handleIncClick } = use{{pascalCase name}}ViewModel(props);
+  const { } = use{{ pascalCase name }}ViewModel(props);
 
-return (
-<Page className={clsx('{{ kebabCase name }}', styles.{{ camelCase name }}, className)} testingID={testingID} style={style}>
-  <div>{counter}</div>
-  <button onClick={handleIncClick}>Increment</button>
-</Page>
-);
+  return (
+    <Page className={clsx('{{ kebabCase name }}', styles.{{ camelCase name }}, className)} testingID={testingID} style={style}>
+      {{ pascalCase name }}
+    </Page>
+  );
 }
 
 export default React.memo({{ pascalCase name }});

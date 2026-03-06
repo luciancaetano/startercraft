@@ -39,7 +39,7 @@ Replace `my-awesome-scalable-project` with your desired project name. This comma
 - [🧩 Why This Structure?](#-why-this-structure)
 - [📚 Examples of Use](#-examples-of-use)
 - [🧪 Testing Guide](./docs/testing-guide.md)
-- [🔄 Dependency Workflows](./docs/workflows-deps.md)
+- [🔄 GitHub Workflows](./docs/workflows-deps.md)
 - [❓ FAQ](#-faq)
 - [🤝 Contributing](#-contributing)
 - [📜 License](#-license)
@@ -91,8 +91,8 @@ Before you begin, ensure you have the following installed:
 [🔝 Back to Index](#-index)
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/luciancaetano/startercraft.git
+cd startercraft
 npm install
 ```
 
@@ -104,15 +104,15 @@ npm install
 
 Commonly used commands from `package.json`:
 
-| Command                 | Description                                    |
-| ----------------------- | ---------------------------------------------- |
-| `npm start`             | Start the development server                   |
-| `npm run build`         | Compile the application for production         |
-| `npm run preview`       | Preview the production build                   |
-| `npm run test`          | Run all tests with coverage                    |
-| `npm run lint`          | Run ESLint                                     |
-| `npm run generate`      | Run the code generator for components/features |
-| `npm run validate`      | Type-check, lint, and run tests                |
+| Command            | Description                                    |
+| ------------------ | ---------------------------------------------- |
+| `npm start`        | Start the development server                   |
+| `npm run build`    | Compile the application for production         |
+| `npm run preview`  | Preview the production build                   |
+| `npm run test`     | Run all tests with coverage                    |
+| `npm run lint`     | Run ESLint                                     |
+| `npm run generate` | Run the code generator for components/features |
+| `npm run validate` | Type-check, lint, and run tests                |
 
 ---
 
@@ -163,33 +163,24 @@ src/app/components/[type]/[name]/
 
 ```bash
 src/app/features/[name]/
-│── index.tsx             # Feature entry point
-│── components/           # UI components
-│   ├── elements/         # Basic UI (buttons, inputs, etc.)
-│   ├── providers/        # Complex providers / data UI
-│   ├── pages/            # Full pages / screens
-│   └── layouts/          # Layout containers
-│── hooks/                # Custom hooks
-│── types/                # Types & interfaces
-│── utils/                # Utilities
-│── config/               # Configurations
+│── [name].routes.tsx     # Feature route definitions
 ```
 
-### 📂 SubComponent Structure
+> Features are lightweight by default. Add `components/`, `hooks/`, `types/`, `utils/`, and `config/` subdirectories as needed.
+
+### 📂 Scoped Component Structure
+
+For components that are exclusively scoped to a parent component, nest them inside a `components/` folder:
 
 ```bash
-src/app/components/[type]/[parent-name]/components/[subcomponent-name]/
-│── [name].tsx            # Subcomponent view
+src/app/components/[type]/[parent-name]/components/[child-name]/
+│── [name].tsx            # Scoped child component view
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
 │── [name].types.ts       # Types & interfaces
 │── [name].view-model.ts  # View-model / logic
 │── index.ts              # Public exports
 ```
-
-- **[subcomponent-name]** → The subcomponent name
-  > The same structure applies to subcomponents within feature modules.
-  > For example, if a feature contains its own nested components, organize them using the same conventions as shown above for subcomponents. This ensures consistency and maintainability across both global and feature-scoped components.
 
 ---
 

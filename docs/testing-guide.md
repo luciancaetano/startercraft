@@ -26,8 +26,6 @@ This document describes the testing strategy, tools, conventions, and patterns u
 | Command | Description |
 |---------|-------------|
 | `npm run test` | Run all tests with coverage |
-| `npm run test:unit` | Run unit tests only |
-| `npm run test:coverage` | Run tests with detailed coverage report |
 | `npm run validate` | Type-check + lint + test (full pipeline) |
 
 ---
@@ -57,19 +55,31 @@ Each layer in the architecture has different testing concerns. Test the **behavi
 
 ## File Naming and Location
 
-Test files live next to the code they test, using the `.spec.tsx` (or `.spec.ts`) extension:
+Test files live next to the code they test, using the `.spec.tsx` (or `.spec.ts`) extension.
+
+Component tests are **split into two separate files** that mirror the MVVM pattern:
 
 ```
 src/app/components/elements/my-button/
   my-button.tsx
   my-button.view-model.ts
-  my-button.spec.tsx        <-- tests the View + ViewModel together
+  my-button.spec.tsx              <-- tests the View (rendering, interactions, a11y)
+  my-button.view-model.spec.ts   <-- tests the ViewModel (state, service delegation)
   ...
+```
 
+Domain layer tests are standalone (no React dependency):
+
+```
 src/app/domain/services/
   auth.service.ts
   auth.service.spec.ts      <-- tests the Service in isolation
 ```
+
+This separation ensures that:
+- **View tests** focus on what the user sees and interacts with — no business logic
+- **ViewModel tests** focus on state management and service delegation — no JSX rendering
+- **Domain tests** are pure logic with no framework dependency
 
 ---
 
@@ -237,9 +247,11 @@ describe('UserRepository', () => {
 
 ## Testing Components
 
+Component testing follows the MVVM split: **ViewModel** (logic) and **View** (presentation) are tested separately. This ensures clear boundaries — business logic is never tested through the DOM, and presentation tests don't depend on service implementations.
+
 ### Testing a View
 
-Views are tested through user-visible behavior. Use Testing Library queries that reflect how users interact with the component.
+Views are tested through user-visible behavior. Use Testing Library queries that reflect how users interact with the component. **Do not test business logic here** — that belongs in ViewModel or Service tests.
 
 ```tsx
 // blink-button.spec.tsx
@@ -272,7 +284,7 @@ describe('BlinkButton', () => {
 
 ### Testing a ViewModel
 
-Use `renderHook` from Testing Library to test hooks in isolation. Mock the services.
+ViewModels are tested **separately from the View** using `renderHook` from Testing Library. Mock domain services to isolate the hook's logic. This is where you verify state transitions, service delegation, and the hook's returned API.
 
 ```tsx
 // dark-mode-switch.view-model.spec.ts
@@ -407,7 +419,6 @@ Coverage is collected automatically via Istanbul when running `npm run test`. Re
 
 The coverage configuration excludes:
 - `node_modules/`, `dist/`, `.cache/`
-- `src/lib/` (third-party wrappers)
 - `src/index.tsx`, `src/app/index.tsx` (entry points)
 
 ### What to Cover
@@ -421,8 +432,11 @@ Focus coverage on domain logic (services, validators, mappers, repositories). Do
 - [ ] Test file uses `.spec.tsx` (or `.spec.ts` for non-JSX) extension
 - [ ] Test file lives next to the source file
 - [ ] Tests describe **behavior**, not implementation
+- [ ] Component View and ViewModel are tested in **separate files**
+- [ ] View tests only cover rendering, interactions, and accessibility
+- [ ] ViewModel tests use `renderHook` and mock domain services
 - [ ] Uses Testing Library queries over `querySelector`
 - [ ] Mocks are scoped and cleaned up (`beforeEach`, `afterEach`)
 - [ ] Domain logic tests don't depend on React
-- [ ] View tests don't test business logic (that belongs in service tests)
 - [ ] No hardcoded magic strings — use constants where appropriate
+- [ ] No `import { describe, it, expect } from 'vitest'` — globals are enabled

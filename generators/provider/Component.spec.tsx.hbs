@@ -1,39 +1,22 @@
-import { renderHook, act, withAppWrapper } from '@lib/tests';
+import { renderHook } from '@testing-library/react';
 import { PropsWithChildren } from 'react';
 
-import {{pascalCase name}}, { use{{pascalCase name}} } from './index';
+import {{ pascalCase name }}, { use{{ pascalCase name }} } from './index';
 
+const wrapper = ({ children }: PropsWithChildren) => (
+  <{{ pascalCase name }}>{children}</{{ pascalCase name }}>
+);
 
-const wrapper = ({ children }: PropsWithChildren<{}>) => withAppWrapper({{pascalCase name}});
+describe('use{{ pascalCase name }} hook', () => {
+  it('should be defined within provider', () => {
+    const { result } = renderHook(() => use{{ pascalCase name }}(), { wrapper });
 
-describe('use{{pascalCase name}} hook', () => {
-it('should initialize with default value', () => {
+    expect(result.current).toBeDefined();
+  });
 
-    const { result } = renderHook(() => use{{pascalCase name}}(), {wrapper});
-
-    expect(result.current.value).toBe(0); // replace 0 with your expected default value
-    });
-
-    // Assuming use{{pascalCase name}} has an increment function
-    it('should increment value', () => {
-    
-        const { result } = renderHook(() => use{{pascalCase name}}(), {wrapper});
-
-        act(() => {
-        result.current.increment(); // replace increment with your actual function name
-        });
-
-        expect(result.current.value).toBe(1); // replace 1 with your expected value after increment
-        });
-
-        // Assuming use{{pascalCase name}} has a decrement function
-        it('should decrement value', () => {
-            const { result } = renderHook(() => use{{pascalCase name}}(), {wrapper});
-
-            act(() => {
-            result.current.decrement(); // replace decrement with your actual function name
-            });
-
-            expect(result.current.value).toBe(-1); // replace -1 with your expected value after decrement
-            });
-            });
+  it('should throw when used outside provider', () => {
+    expect(() => {
+      renderHook(() => use{{ pascalCase name }}());
+    }).toThrow('{{ pascalCase name }}Context must be used within a {{ pascalCase name }}Provider');
+  });
+});

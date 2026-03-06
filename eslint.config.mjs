@@ -60,14 +60,7 @@ export default [
   {
     files: ['**/*.ts', '**/*.cjs', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.mjs'],
     plugins: {
-      react: fixupPluginRules(react),
-      'react-hooks': fixupPluginRules(reactHooks),
-      'jsx-a11y': fixupPluginRules(jsxA11Y),
-      import: fixupPluginRules(_import),
-      'testing-library': fixupPluginRules(testingLibrary),
-      'jest-dom': fixupPluginRules(jestDom),
-      'no-relative-import-paths': noRelativeImportPaths,
-      '@typescript-eslint': fixupPluginRules(typescriptEslint),
+      'no-relative-import-paths': fixupPluginRules(noRelativeImportPaths),
       prettier: prettierPlugin,
     },
     languageOptions: {

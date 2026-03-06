@@ -1,16 +1,68 @@
 
-# How to Configure and Run the Dependency Workflows
+# GitHub Workflows
 
-This project provides two main workflows for monitoring and updating dependencies using npm-check-updates (ncu):
+This project provides four GitHub Actions workflows:
 
-- **deps-report.yml**: Generates a weekly report of outdated dependencies and saves it as an artifact.
-- **pr-ncu-comment.yml**: Automatically comments on Pull Requests with the list of dependencies that have new versions available.
+| Workflow | File | Trigger |
+|----------|------|---------|
+| **CI** | `ci.yml` | Push/PR to `main` |
+| **Release** | `release.yml` | Manual dispatch |
+| **Weekly Dependency Report** | `deps-report.yml` | Weekly (Mon 9AM BRT) or manual |
+| **PR Dependency Comment** | `pr-ncu-comment.yml` | PR opened/updated/reopened |
 
 ---
 
-## 1. GitHub Token Configuration
+## 1. CI (`ci.yml`)
 
-Both workflows use the default `${{ secrets.GITHUB_TOKEN }}` provided automatically by GitHub Actions. You do not need to manually create or configure a token for basic operation.
+Runs on every push or pull request to `main`. Steps:
+
+1. Checkout and setup Node.js 22
+2. `npm ci`
+3. `npm run build`
+4. `npm run test`
+5. `npm run lint`
+
+No configuration required.
+
+---
+
+## 2. Release (`release.yml`)
+
+Manual workflow for creating releases. Triggered via the Actions tab with a `release_type` input (`patch`, `minor`, `major`, or `pre`).
+
+Steps:
+
+1. Lint, build, and test the project
+2. Bump version in `package.json` using `npm version`
+3. Push commit and tag to `main`
+4. Create a GitHub Release with auto-generated release notes
+
+Only runs when triggered from the `main` branch.
+
+---
+
+## 3. Weekly Dependency Report (`deps-report.yml`)
+
+- Runs automatically every Monday at 9:00 AM (Brazil time, 12:00 UTC).
+- Can also be triggered manually from the GitHub Actions panel:
+  1. Go to the **Actions** tab in your repository.
+  2. Select **Weekly Dependency Update Report**.
+  3. Click **Run workflow**.
+- The generated report will be available as a workflow artifact.
+
+---
+
+## 4. PR Dependency Comment (`pr-ncu-comment.yml`)
+
+- Runs automatically every time a PR is opened, updated, or reopened.
+- Comments on the PR with the list of outdated dependencies, using the plain output from the `ncu` command.
+- No manual configuration is required.
+
+---
+
+## GitHub Token Configuration
+
+All workflows use the default `${{ secrets.GITHUB_TOKEN }}` provided automatically by GitHub Actions. You do not need to manually create or configure a token for basic operation.
 
 If you need additional permissions (e.g., to comment on PRs from forks), you can create a Personal Access Token (PAT) and add it as a secret in your repository:
 
@@ -24,33 +76,15 @@ If you need additional permissions (e.g., to comment on PRs from forks), you can
 
 ---
 
-## 2. How to Run the Workflows
-
-### a) Weekly Workflow (`deps-report.yml`)
-
-- Runs automatically every Monday at 9:00 AM (Brazil time, 12:00 UTC).
-- Can also be triggered manually from the GitHub Actions panel:
-  1. Go to the **Actions** tab in your repository.
-  2. Select **Weekly Dependency Update Report**.
-  3. Click **Run workflow**.
-- The generated report will be available as a workflow artifact.
-
-### b) Pull Request Workflow (`pr-ncu-comment.yml`)
-
-- Runs automatically every time a PR is opened, updated, or reopened.
-- Comments on the PR with the list of outdated dependencies, using the plain output from the `ncu` command.
-- No manual configuration is required to run.
-
----
-
-## 3. Requirements
+## Requirements
 
 - The project must have a valid `package.json` file in the root.
-- The workflow uses Node.js 20 and installs `npm-check-updates` globally.
+- The dependency workflows use Node.js 20 and install `npm-check-updates` globally.
+- The CI workflow uses Node.js 22.
 
 ---
 
-## 4. Customization
+## Customization
 
 If you want to change schedules, comment format, or permissions, simply edit the files in `.github/workflows/` as needed.
 

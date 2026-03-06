@@ -39,7 +39,22 @@ Each sublayer has a barrel `index.ts`. The old `@app/types/*` and `@http/*` alia
 - `[name].view-model.ts`: React state orchestration, delegates to domain services
 - `index.ts`: Public exports
 
-## 5. Best Practices
+## 5. Testing Strategy
+
+Component tests are split into two separate concerns that mirror the MVVM pattern:
+
+- **ViewModel tests** (`[name].view-model.spec.ts`) — Test the hook logic in isolation using `renderHook` from Testing Library. Mock domain services with `vi.mock`. Verify state transitions, service delegation, and the returned API shape.
+- **View tests** (`[name].spec.tsx`) — Test the presentation layer by rendering the component. Verify rendering output, user interactions, and accessibility. Do NOT test business logic here — that belongs in ViewModel or Service tests.
+
+Domain layer tests are standalone and do not depend on React:
+
+- **Services** (`[name].service.spec.ts`) and **Validators** (`[name].validator.spec.ts`) — Pure logic, highest test priority.
+- **Mappers** (`[name].mapper.spec.ts`) — Test both `toModel` and `toDto` directions.
+- **Repositories** (`[name].repository.spec.ts`) — Mock external systems (fetch, localStorage), test the contract.
+
+Vitest globals (`describe`, `it`, `expect`, `vi`) are available without imports.
+
+## 6. Best Practices
 
 - Maintain type safety throughout the codebase.
 - Keep logic and UI separated (MVVM + Domain Layer).

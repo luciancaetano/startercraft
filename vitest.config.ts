@@ -27,7 +27,10 @@ export default defineConfig({
       enabled: true,
       // Cobertura só do código dentro de src, ignorando libs e outros
       include: ['src/**/*.{js,ts,jsx,tsx}'],
-      exclude: commonExcludes,
+      exclude: [
+        ...commonExcludes,
+        'src/app/components/providers/app-provider/app-provider.tsx',
+      ],
     },
     maxWorkers: 16,
     minWorkers: 8,

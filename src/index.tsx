@@ -4,7 +4,7 @@ import '@fontsource/roboto';
 import App from './app';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { onCLS, onFID, onLCP, onFCP, onTTFB } from 'web-vitals';
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'web-vitals';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
@@ -16,7 +16,7 @@ root.render(
 
 function reportWebVitals(onReport: (metric: { name: string; value: number }) => void) {
   onCLS(onReport);
-  onFID(onReport);
+  onINP(onReport);
   onLCP(onReport);
   onFCP(onReport);
   onTTFB(onReport);

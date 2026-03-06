@@ -20,7 +20,7 @@ React + TypeScript starter project using MVVM pattern with a Domain Layer archit
 
 ```
 View (.tsx)           → JSX rendering only
-ViewModel (.vm.ts)    → React state orchestration (useState, useEffect, useCallback)
+ViewModel (.view-model.ts) → React state orchestration (useState, useEffect, useCallback)
 Services              → Business logic and orchestration
 Repositories          → Data access (API, localStorage, IndexedDB)
 Validators            → Pure validation rules
@@ -85,11 +85,27 @@ Component types: `elements/`, `layouts/`, `pages/`, `providers/`.
 
 ## Commands
 
-- `npm run dev` — Start dev server
+- `npm start` — Start dev server
 - `npm run build` — Production build
 - `npm run test` — Run tests (Vitest)
 - `npm run lint` — Lint with ESLint
 - `npm run generate` — Scaffold components/features via Plop.js
+- `npm run validate` — Type-check + lint + test (full pipeline)
+
+## Testing Strategy
+
+Component tests are split into two separate concerns:
+
+- **ViewModel tests** (`[name].view-model.spec.ts`) — Test logic in isolation using `renderHook`. Mock domain services. Verify state transitions, service delegation, and the hook's returned API.
+- **View tests** (`[name].spec.tsx`) — Test presentation by rendering the component. Verify rendering output, user interactions, and accessibility. Do NOT test business logic here.
+
+Domain layer tests are standalone (no React):
+
+- **Services/Validators** (`[name].service.spec.ts`) — Pure logic, highest priority.
+- **Mappers** (`[name].mapper.spec.ts`) — Test both `toModel` and `toDto` directions.
+- **Repositories** (`[name].repository.spec.ts`) — Mock external systems, test the contract.
+
+Globals (`describe`, `it`, `expect`, `vi`) are available without imports (Vitest globals enabled).
 
 ## Key Conventions
 

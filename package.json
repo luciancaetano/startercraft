@@ -17,6 +17,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest --coverage",
+    "test:coverage": "vitest --run --coverage",
     "postinstall": "husky install",
     "lint": "eslint --fix .",
     "generate": "plop",
