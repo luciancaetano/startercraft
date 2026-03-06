@@ -242,7 +242,7 @@ export const UserValidator = {
   validateProfile(user: Partial<User>): string[] {
     const errors: string[] = [];
     if (!user.name) errors.push('Name is required');
-    if (user.email && !this.isValidEmail(user.email)) errors.push('Invalid email');
+    if (user.email && !UserValidator.isValidEmail(user.email)) errors.push('Invalid email');
     return errors;
   },
 };

@@ -1,10 +1,10 @@
 # Copilot Instructions for base-react-typescript-project
 
 ## 1. Code Generation
+
 - Use Plop.js for generating components, features, providers, and subcomponents.
 - Run `npm run generate` to scaffold new code using predefined templates.
 - Generated code should follow the documented folder and file structure for each type (component, feature, subcomponent).
-
 
 ## 2. Domain Layer
 
@@ -31,22 +31,16 @@ Each sublayer has a barrel `index.ts`. The old `@app/types/*` and `@http/*` alia
 - **View (`[name].tsx`)**: Only presentation logic and JSX markup should be placed in the View file. The View should consume the ViewModel, receiving state and handlers as props or via hooks, and should not contain business logic or state management.
 
 ### Required files for each component:
-  - `[name].tsx`: Component view (JSX and UI markup only)
-  - `[name].spec.tsx`: Unit tests
-  - `[name].module.scss`: Scoped styles
-  - `[name].types.ts`: UI prop types & component interfaces
-  - `[name].view-model.ts`: React state orchestration, delegates to domain services
-  - `index.ts`: Public exports
 
-## 4. Store Organization
-- All state management logic must be placed in `src/stores/`.
-- Each store gets its own folder: `src/stores/[storeName]/`
-  - `[storeName].store.ts`: Store logic (state, actions, selectors) using Zustand
-  - `[storeName].types.ts`: TypeScript types for state and actions
-  - `index.ts`: Barrel file for exports
-- Always use explicit types and keep store logic encapsulated.
+- `[name].tsx`: Component view (JSX and UI markup only)
+- `[name].spec.tsx`: Unit tests
+- `[name].module.scss`: Scoped styles
+- `[name].types.ts`: UI prop types & component interfaces
+- `[name].view-model.ts`: React state orchestration, delegates to domain services
+- `index.ts`: Public exports
 
 ## 5. Best Practices
+
 - Maintain type safety throughout the codebase.
 - Keep logic and UI separated (MVVM + Domain Layer).
 - Business logic belongs in `domain/services/`, not in view-models or components.

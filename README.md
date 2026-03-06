@@ -8,7 +8,7 @@
 [![Contributors](https://img.shields.io/github/contributors/luciancaetano/startercraft)](https://github.com/luciancaetano/startercraft/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/luciancaetano/startercraft?logo=git)](https://github.com/luciancaetano/startercraft/commits/main)
 
-An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.  
+An **opinionated boilerplate** designed to accelerate the development of modern, scalable React applications with TypeScript.
 This template is especially suited for projects that require high scalability and complexity, promoting a clean architecture, modularity, and conventions that make maintenance easier, improve code quality, and enhance overall codebase understanding across the team.
 
 ## 🚀 Create a New Project
@@ -25,26 +25,26 @@ Replace `my-awesome-scalable-project` with your desired project name. This comma
 
 ## 📖 Index
 
-* [📦 Store](./docs/store.md)
-* [📂 Component Organization](./docs/component-organization.md)
-* [🏛️ Domain Layer](./docs/domain-layer.md)
-* [⚙️ Code Generation](./docs/code-generation.md)
-* [🧩 What is a Feature?](./docs/feature-definition.md)
-* [⚖️ License](./LICENCE.md)
-* [🚀 Features](#-features)
-* [📋 Prerequisites](#-prerequisites)
-* [📦 Installation](#-installation)
-* [🛠️ Scripts](#%EF%B8%8F-scripts)
-* [🧭 Path Aliases](#-path-aliases)
-* [⚙️ Code Generation](#%EF%B8%8F-code-generation)
-* [🧩 Why This Structure?](#-why-this-structure)
-* [📚 Examples of Use](#-examples-of-use)
-* [🔄 Dependency Workflows](./docs/workflows-deps.md)
-* [❓ FAQ](#-faq)
-* [🤝 Contributing](#-contributing)
-* [📜 License](#-license)
-* [🌟 Acknowledgements](#-acknowledgements)
-* [🔗 Useful Links](#-useful-links)
+- [📂 Component Organization](./docs/component-organization.md)
+- [🏛️ Domain Layer](./docs/domain-layer.md)
+- [⚙️ Code Generation](./docs/code-generation.md)
+- [🧩 What is a Feature?](./docs/feature-definition.md)
+- [⚖️ License](./LICENCE.md)
+- [🚀 Features](#-features)
+- [📋 Prerequisites](#-prerequisites)
+- [📦 Installation](#-installation)
+- [🛠️ Scripts](#%EF%B8%8F-scripts)
+- [🧭 Path Aliases](#-path-aliases)
+- [⚙️ Code Generation](#%EF%B8%8F-code-generation)
+- [🧩 Why This Structure?](#-why-this-structure)
+- [📚 Examples of Use](#-examples-of-use)
+- [🧪 Testing Guide](./docs/testing-guide.md)
+- [🔄 Dependency Workflows](./docs/workflows-deps.md)
+- [❓ FAQ](#-faq)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [🌟 Acknowledgements](#-acknowledgements)
+- [🔗 Useful Links](#-useful-links)
 
 ---
 
@@ -58,7 +58,6 @@ This starter ships with everything you need to build production-grade React apps
   - [React](https://reactjs.org/) – UI library
   - [TypeScript](https://www.typescriptlang.org/) – static typing
   - [React Router](https://reactrouter.com/) – routing
-  - [Zustand](https://github.com/pmndrs/zustand) – state management
   - [React Hook Form](https://react-hook-form.com/) – form handling
   - [i18next](https://www.i18next.com/) – internationalization
 
@@ -85,8 +84,8 @@ This starter ships with everything you need to build production-grade React apps
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (version 16 or higher)
-- [npm run](https://npm runpkg.com/) (preferred over npm)
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ---
 
@@ -97,7 +96,7 @@ Before you begin, ensure you have the following installed:
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-npm run install
+npm install
 ```
 
 ---
@@ -108,18 +107,18 @@ npm run install
 
 Commonly used commands from `package.json`:
 
-| Command              | Description                                    |
-| -------------------- | ---------------------------------------------- |
-| `npm run start`      | Start the development server                   |
-| `npm run build`      | Compile the application for production         |
-| `npm run preview`    | Preview the production build                   |
-| `npm run test`       | Run all tests                                  |
-| `npm run test:unit`  | Run unit tests (Vitest)                        |
-| `npm run test:coverage` | Run tests with coverage report               |
-| `npm run lint`       | Run ESLint                                     |
-| `npm run serve`      | Serve the production build locally             |
-| `npm run generate`   | Run the code generator for components/features |
-| `npm run validate`   | Type-check, lint, and run tests                |
+| Command                 | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| `npm start`             | Start the development server                   |
+| `npm run build`         | Compile the application for production         |
+| `npm run preview`       | Preview the production build                   |
+| `npm run test`          | Run all tests                                  |
+| `npm run test:unit`     | Run unit tests (Vitest)                        |
+| `npm run test:coverage` | Run tests with coverage report                 |
+| `npm run lint`          | Run ESLint                                     |
+| `npm run serve`         | Serve the production build locally             |
+| `npm run generate`      | Run the code generator for components/features |
+| `npm run validate`      | Type-check, lint, and run tests                |
 
 ---
 
@@ -136,7 +135,7 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 | `@config/*`     | `./src/app/config/*`     | Configurations                       |
 | `@domain/*`     | `./src/app/domain/*`     | Domain models, types & services      |
 | `@hooks/*`      | `./src/app/hooks/*`      | Custom React hooks                   |
-| `@locales/*`    | `./src/locales/*`        | Internationalization resources        |
+| `@locales/*`    | `./src/locales/*`        | Internationalization resources       |
 | `@store/*`      | `./src/app/store/*`      | Global store                         |
 | `@utils/*`      | `./src/app/utils/*`      | Utility functions                    |
 | `@assets/*`     | `./src/assets/*`         | Static assets (images, icons, fonts) |
@@ -156,7 +155,7 @@ npm run generate
 ### 📂 Component Structure
 
 ```bash
-src/components/[type]/[name]/
+src/app/components/[type]/[name]/
 │── [name].tsx            # Component view
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
@@ -165,13 +164,13 @@ src/components/[type]/[name]/
 │── index.ts              # Public exports
 ```
 
-* **\[type]** → `element`, `provider`, `page`, or `layout`
-* **\[name]** → The component name
+- **\[type]** → `elements`, `providers`, `pages`, or `layouts`
+- **\[name]** → The component name
 
 ### 📂 Feature Structure
 
 ```bash
-src/features/[name]/
+src/app/features/[name]/
 │── index.tsx             # Feature entry point
 │── components/           # UI components
 │   ├── elements/         # Basic UI (buttons, inputs, etc.)
@@ -187,7 +186,7 @@ src/features/[name]/
 ### 📂 SubComponent Structure
 
 ```bash
-src/components/[type]/[parent-name]/components/[subcomponent-name]/
+src/app/components/[type]/[parent-name]/components/[subcomponent-name]/
 │── [name].tsx            # Subcomponent view
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
@@ -196,9 +195,9 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 │── index.ts              # Public exports
 ```
 
-* **[subcomponent-name]** → The subcomponent name
-> The same structure applies to subcomponents within feature modules.  
-> For example, if a feature contains its own nested components, organize them using the same conventions as shown above for subcomponents. This ensures consistency and maintainability across both global and feature-scoped components.
+- **[subcomponent-name]** → The subcomponent name
+  > The same structure applies to subcomponents within feature modules.
+  > For example, if a feature contains its own nested components, organize them using the same conventions as shown above for subcomponents. This ensures consistency and maintainability across both global and feature-scoped components.
 
 ---
 
@@ -206,11 +205,11 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 
 [🔝 Back to Index](#-index)
 
-* ✅ **Modularity** – clean separation of concerns
-* ✅ **Scalability** – easy to extend features
-* ✅ **Reusability** – atomic components & shared utils
-* ✅ **Maintainability** – consistent architecture & conventions
-* ✅ **DX Friendly** – generation tools, linting & validation pipeline
+- ✅ **Modularity** – clean separation of concerns
+- ✅ **Scalability** – easy to extend features
+- ✅ **Reusability** – atomic components & shared utils
+- ✅ **Maintainability** – consistent architecture & conventions
+- ✅ **DX Friendly** – generation tools, linting & validation pipeline
 
 ---
 
@@ -221,13 +220,13 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 ### Running the Development Server
 
 ```bash
-npm run start
+npm start
 ```
 
 ### Running Tests
 
 ```bash
-npm run test
+npm test
 ```
 
 ### Building for Production
@@ -243,29 +242,39 @@ npm run build
 [🔝 Back to Index](#-index)
 
 ### What is the minimum Node.js version required?
-Node.js version 16 or higher is required. Using the latest LTS version is recommended for better stability and support.
 
-### Can I use npm instead of npm run?
-Yes, but using `npm run` is recommended for consistency and to ensure compatibility with the predefined scripts in the project.
+Node.js version 18 or higher is required. Using the latest LTS version is recommended for better stability and support.
+
+### Can I use npm instead of yarn?
+
+Yes. Both `npm` and `yarn` work with this project. Use whichever you prefer, just be consistent across your team.
 
 ### How do I add a new feature or component?
+
 Use the code generation tool by running:
+
 ```bash
 npm run generate
 ```
+
 Follow the prompts to scaffold the desired feature or component.
 
 ### How do I configure environment variables?
+
 Create a `.env` file in the root directory and define your variables there. Use the `example.env` file as a reference.
 
 ### How do I update dependencies?
+
 Run the following command to update all dependencies:
+
 ```bash
 npm update
 ```
+
 For major version updates, review the changelogs of the respective packages to ensure compatibility.
 
 ### How do I report a bug or request a feature?
+
 Open an issue on the [GitHub repository](https://github.com/luciancaetano/startercraft/issues) with detailed information about the bug or feature request.
 
 ---
@@ -305,7 +314,6 @@ This starter was inspired by best practices and setups from the React community,
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [React Router Documentation](https://reactrouter.com/)
-- [Zustand Documentation](https://github.com/pmndrs/zustand)
 - [React Hook Form Documentation](https://react-hook-form.com/)
 - [i18next Documentation](https://www.i18next.com/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)

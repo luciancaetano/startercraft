@@ -27,3 +27,5 @@ yarn-error.log*
 /dist
 
 ncu-report.txt
+
+.claude

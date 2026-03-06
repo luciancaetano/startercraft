@@ -30,7 +30,7 @@ This will automatically generate the code without interactive prompts.
 Generates a new component with the following structure:
 
 ```bash
-src/components/[type]/[name]/
+src/app/components/[type]/[name]/
 │── [name].tsx            # Component view
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
@@ -52,7 +52,7 @@ npm run generate element MyButton
 Generates a new feature with the following structure:
 
 ```bash
-src/features/[name]/
+src/app/features/[name]/
 │── index.tsx             # Feature entry point
 │── components/           # UI components
 │   ├── elements/         # Basic UI (buttons, inputs, etc.)
@@ -70,7 +70,7 @@ src/features/[name]/
 Generates a new subcomponent with the following structure:
 
 ```bash
-src/components/[type]/[parent-name]/components/[subcomponent-name]/
+src/app/components/[type]/[parent-name]/components/[subcomponent-name]/
 │── [name].tsx            # Subcomponent view
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
@@ -88,7 +88,7 @@ src/components/[type]/[parent-name]/components/[subcomponent-name]/
 Generates a new provider with the following structure:
 
 ```bash
-src/components/provider/[name]/
+src/app/components/provider/[name]/
 │── [name].tsx            # Provider view
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)

@@ -9,7 +9,6 @@ React + TypeScript starter project using MVVM pattern with a Domain Layer archit
 - **Framework**: React 19, TypeScript 5.9
 - **Bundler**: Vite 7
 - **Styling**: Tailwind CSS 4 + SCSS Modules (`[name].module.scss`)
-- **State**: Zustand
 - **Routing**: React Router DOM 7
 - **i18n**: i18next + react-i18next
 - **Testing**: Vitest + Testing Library
@@ -34,15 +33,15 @@ Constants             → Domain enums, config values (leaf layer)
 
 ### Domain Layer (`src/app/domain/`)
 
-| Sublayer | Path | Naming | Responsibility |
-|----------|------|--------|----------------|
-| Models | `domain/models/` | `[name].model.ts` | Domain types, interfaces, enums. Framework-agnostic. |
-| Services | `domain/services/` | `[name].service.ts` | Business logic. Export as namespace objects (`export const FooService = { ... }`). |
-| Repositories | `domain/repositories/` | `[name].repository.ts` | Data access. Only layer that talks to external systems. |
-| Validators | `domain/validators/` | `[name].validator.ts` | Pure validation rules. No side effects. |
-| Mappers | `domain/mappers/` | `[name].mapper.ts` | Transform DTOs to/from domain models. Pure functions. |
-| DTOs | `domain/dtos/` | `[name].dto.ts` | API request/response contracts. Mirror the API shape. |
-| Constants | `domain/constants/` | `[name].constants.ts` | Domain enums, config values, storage keys. |
+| Sublayer     | Path                   | Naming                 | Responsibility                                                                     |
+| ------------ | ---------------------- | ---------------------- | ---------------------------------------------------------------------------------- |
+| Models       | `domain/models/`       | `[name].model.ts`      | Domain types, interfaces, enums. Framework-agnostic.                               |
+| Services     | `domain/services/`     | `[name].service.ts`    | Business logic. Export as namespace objects (`export const FooService = { ... }`). |
+| Repositories | `domain/repositories/` | `[name].repository.ts` | Data access. Only layer that talks to external systems.                            |
+| Validators   | `domain/validators/`   | `[name].validator.ts`  | Pure validation rules. No side effects.                                            |
+| Mappers      | `domain/mappers/`      | `[name].mapper.ts`     | Transform DTOs to/from domain models. Pure functions.                              |
+| DTOs         | `domain/dtos/`         | `[name].dto.ts`        | API request/response contracts. Mirror the API shape.                              |
+| Constants    | `domain/constants/`    | `[name].constants.ts`  | Domain enums, config values, storage keys.                                         |
 
 Each sublayer has a barrel `index.ts`. Access via `@domain/*` alias.
 
@@ -73,26 +72,19 @@ Component types: `elements/`, `layouts/`, `pages/`, `providers/`.
 
 ## Path Aliases
 
-| Alias | Path |
-|-------|------|
-| `@domain/*` | `src/app/domain/*` |
+| Alias           | Path                   |
+| --------------- | ---------------------- |
+| `@domain/*`     | `src/app/domain/*`     |
 | `@components/*` | `src/app/components/*` |
-| `@features/*` | `src/app/features/*` |
-| `@config/*` | `src/app/config/*` |
-| `@hooks/*` | `src/app/hooks/*` |
-| `@store/*` | `src/app/store/*` |
-| `@utils/*` | `src/app/utils/*` |
-| `@locales/*` | `src/locales/*` |
-| `@assets/*` | `src/assets/*` |
+| `@features/*`   | `src/app/features/*`   |
+| `@config/*`     | `src/app/config/*`     |
+| `@hooks/*`      | `src/app/hooks/*`      |
+| `@store/*`      | `src/app/store/*`      |
+| `@utils/*`      | `src/app/utils/*`      |
+| `@locales/*`    | `src/locales/*`        |
+| `@assets/*`     | `src/assets/*`         |
 
 **Removed aliases**: `@app/types/*`, `@http/*`, `@api/*`. Use `@domain/*` instead.
-
-## Store Organization
-
-Stores live in `src/app/store/[storeName]/`:
-- `[storeName].store.ts` — Zustand store (state, actions, selectors)
-- `[storeName].types.ts` — TypeScript types
-- `index.ts` — Barrel exports
 
 ## Commands
 

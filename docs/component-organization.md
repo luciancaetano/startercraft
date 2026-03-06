@@ -13,7 +13,7 @@ The project follows a modular and scalable structure for organizing components. 
 Each component is organized as follows:
 
 ```bash
-src/components/[type]/[name]/
+src/app/components/[type]/[name]/
 │── [name].tsx            # Component view (View)
 │── [name].spec.tsx       # Unit test
 │── [name].module.scss    # Styles (scoped)
@@ -30,9 +30,9 @@ src/components/[type]/[name]/
 
 3. **`[name].module.scss`**: Scoped styles for the component, ensuring that styles do not leak into other parts of the application.
 
-4. **`[name].types.ts`**: Defines the TypeScript types and interfaces used by the component. This acts as the "Model" in the MVVM pattern, representing the data structure.
+4. **`[name].types.ts`**: Defines the UI prop types and component interfaces. Domain types live in `domain/models/`.
 
-5. **`[name].view-model.ts`**: Contains the business logic and state management for the component. This acts as the "ViewModel" in the MVVM pattern, bridging the Model and the View.
+5. **`[name].view-model.ts`**: Contains React state orchestration (useState, useEffect, useCallback). Business logic is delegated to domain services (`domain/services/`). The ViewModel bridges the domain layer and the View.
 
 6. **`index.ts`**: Exports the component and its related files for easy imports.
 
@@ -47,7 +47,7 @@ In cases where a component is exclusively scoped to a parent component and is no
 For components that are exclusively scoped to a parent component, the structure should follow this pattern:
 
 ```bash
-src/components/[type]/[name]/components/[name]/
+src/app/components/[type]/[name]/components/[name]/
 │── [name].tsx            # Scoped child component view
 │── [name].spec.tsx       # Scoped child component unit test
 │── [name].module.scss    # Scoped child component styles
@@ -83,25 +83,27 @@ The MVVM (Model-View-ViewModel) pattern is a design pattern that separates the d
 ### 🛠️ How MVVM is Applied
 
 1. **Model**:
-   - Represented by the `types.ts` file.
-   - Defines the data structure and interfaces used by the component.
+   - Domain types and entities live in `domain/models/`.
+   - UI prop types live in the component's `types.ts` file.
+   - See [Domain Layer](./domain-layer.md) for details.
 
 2. **View**:
    - Represented by the `tsx` file.
-   - Handles the UI logic and rendering.
-   - Binds to the ViewModel to display data and handle user interactions.
+   - Handles JSX rendering and styling only.
+   - Receives everything from the ViewModel — no logic in the View.
 
 3. **ViewModel**:
    - Represented by the `view-model.ts` file.
-   - Contains the business logic and state management.
-   - Acts as a mediator between the Model and the View.
-   - Exposes data and commands to the View in a format that is easy to consume.
+   - A thin React hook that orchestrates state (`useState`, `useEffect`, `useCallback`).
+   - Delegates all business logic to domain services (`domain/services/`).
+   - Exposes state and handlers to the View.
 
 ### 🔄 Interaction Flow
 
-1. The **View** binds to the **ViewModel** to display data and handle user interactions.
-2. The **ViewModel** interacts with the **Model** to fetch or update data.
-3. Changes in the **Model** are propagated to the **ViewModel**, which updates the **View**.
+1. The **View** calls the **ViewModel** hook and renders the returned state.
+2. The **ViewModel** delegates business decisions to **domain services**.
+3. **Services** coordinate with **repositories**, **validators**, and **models**.
+4. Results flow back through the ViewModel to update the View.
 
 ---
 
@@ -122,13 +124,13 @@ Here is an example of a simple component following the MVVM pattern:
 ```tsx
 import React from 'react';
 import { useButtonViewModel } from './Button.view-model';
-import './Button.module.scss';
+import styles from './Button.module.scss';
 
 const Button: React.FC = () => {
   const { label, onClick } = useButtonViewModel();
 
   return (
-    <button className="button" onClick={onClick}>
+    <button className={styles.button} onClick={onClick}>
       {label}
     </button>
   );
@@ -139,20 +141,21 @@ export default Button;
 
 ### File: `Button.view-model.ts` (ViewModel)
 ```ts
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import { ButtonService } from '@domain/services';
 
 export const useButtonViewModel = () => {
-  const [label, setLabel] = useState('Click Me');
+  const [label, setLabel] = useState(() => ButtonService.getDefaultLabel());
 
-  const onClick = () => {
-    setLabel('Clicked!');
-  };
+  const onClick = useCallback(() => {
+    setLabel(ButtonService.getClickedLabel());
+  }, []);
 
   return { label, onClick };
 };
 ```
 
-### File: `Button.types.ts` (Model)
+### File: `Button.types.ts` (UI Props)
 ```ts
 export interface ButtonProps {
   label: string;
