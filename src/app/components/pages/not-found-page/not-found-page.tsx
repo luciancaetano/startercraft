@@ -7,7 +7,7 @@ import React from 'react';
 
 function NotFoundPage(props: NotFoundPageProps) {
   const { className, testingID, style } = props;
-  const { t } = useNotFoundPageViewModel(props);
+  useNotFoundPageViewModel(props);
 
   return (
     <Page
@@ -23,10 +23,10 @@ function NotFoundPage(props: NotFoundPageProps) {
         404
       </h1>
       <div className="mt-4 sm:mt-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg shadow-lg text-lg sm:text-2xl transform rotate-3">
-        {t('page.not.found')}
+        Page Not Found
       </div>
       <p className="mt-8 text-gray-700 dark:text-gray-300 text-center max-w-md sm:text-lg">
-        {t('page.not.found.description')}
+        The page you are looking for does not exist or has been moved.
       </p>
     </Page>
   );

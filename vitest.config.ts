@@ -8,7 +8,6 @@ const commonExcludes = [
   '.git/**',
   '.cache/**',
   'src/lib/**',
-  'src/i18n/**',
   'src/index.tsx',
   'src/app/index.tsx',
 ];
@@ -26,7 +25,7 @@ export default defineConfig({
       provider: 'istanbul',
       reportsDirectory: './coverage',
       enabled: true,
-      // Cobertura só do código dentro de src, ignorando libs, i18n e outros
+      // Cobertura só do código dentro de src, ignorando libs e outros
       include: ['src/**/*.{js,ts,jsx,tsx}'],
       exclude: commonExcludes,
     },

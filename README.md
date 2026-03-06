@@ -58,7 +58,6 @@ This starter ships with everything you need to build production-grade React apps
   - [React](https://reactjs.org/) – UI library
   - [TypeScript](https://www.typescriptlang.org/) – static typing
   - [React Router](https://reactrouter.com/) – routing
-  - [i18next](https://www.i18next.com/) – internationalization
   - [web-vitals](https://web.dev/vitals/) – performance monitoring
 
 - **Styling & UI**
@@ -130,7 +129,6 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 | `@config/*`     | `./src/app/config/*`     | Configurations                       |
 | `@domain/*`     | `./src/app/domain/*`     | Domain models, types & services      |
 | `@hooks/*`      | `./src/app/hooks/*`      | Custom React hooks                   |
-| `@locales/*`    | `./src/locales/*`        | Internationalization resources       |
 | `@utils/*`      | `./src/app/utils/*`      | Utility functions                    |
 | `@assets/*`     | `./src/assets/*`         | Static assets (images, icons, fonts) |
 
@@ -304,7 +302,6 @@ This starter was inspired by best practices and setups from the React community,
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [React Router Documentation](https://reactrouter.com/)
-- [i18next Documentation](https://www.i18next.com/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Vitest Documentation](https://vitest.dev/guide/)
 - [Web Vitals](https://web.dev/vitals/)

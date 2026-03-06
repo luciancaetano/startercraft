@@ -10,7 +10,6 @@ React + TypeScript starter project using MVVM pattern with a Domain Layer archit
 - **Bundler**: Vite 7
 - **Styling**: Tailwind CSS 4 + SCSS Modules (`[name].module.scss`)
 - **Routing**: React Router DOM 7
-- **i18n**: i18next + react-i18next
 - **Testing**: Vitest + Testing Library
 - **Linting**: ESLint 9 (flat config) + @stylistic
 - **Code Generation**: Plop.js via `npm run generate`
@@ -80,10 +79,9 @@ Component types: `elements/`, `layouts/`, `pages/`, `providers/`.
 | `@config/*`     | `src/app/config/*`     |
 | `@hooks/*`      | `src/app/hooks/*`      |
 | `@utils/*`      | `src/app/utils/*`      |
-| `@locales/*`    | `src/locales/*`        |
 | `@assets/*`     | `src/assets/*`         |
 
-**Removed aliases**: `@app/types/*`, `@http/*`, `@api/*`, `@store/*`. Use `@domain/*` instead.
+**Removed aliases**: `@app/types/*`, `@http/*`, `@api/*`, `@store/*`, `@locales/*`. Use `@domain/*` instead.
 
 ## Commands
 

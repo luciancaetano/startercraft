@@ -18,7 +18,7 @@ This document describes the testing strategy, tools, conventions, and patterns u
 ### Configuration
 
 - **Vitest config**: `vitest.config.ts` — jsdom environment, globals enabled, path aliases via `vite-tsconfig-paths`
-- **Setup file**: `src/setupTests.ts` — loads jest-dom matchers and mocks the i18n module
+- **Setup file**: `src/setupTests.ts` — loads jest-dom matchers
 - **Globals**: `describe`, `it`, `expect`, `vi` are available globally (no imports needed)
 
 ### Scripts
@@ -335,14 +335,6 @@ vi.spyOn(ColorModeService, 'toggle');
 vi.spyOn(ColorModeService, 'toggle').mockReturnValue('dark');
 ```
 
-### Mocking i18n
-
-The global setup file (`src/setupTests.ts`) already mocks i18n. The `t()` function returns the translation key as-is, so you can assert against keys:
-
-```tsx
-expect(getByText('home.title')).toBeInTheDocument();
-```
-
 ### Mocking API Calls with MSW
 
 For integration-style tests that exercise the full stack (repository + mapper + service), use [MSW](https://mswjs.io/):
@@ -415,7 +407,7 @@ Coverage is collected automatically via Istanbul when running `npm run test`. Re
 
 The coverage configuration excludes:
 - `node_modules/`, `dist/`, `.cache/`
-- `src/lib/`, `src/i18n/` (third-party wrappers)
+- `src/lib/` (third-party wrappers)
 - `src/index.tsx`, `src/app/index.tsx` (entry points)
 
 ### What to Cover

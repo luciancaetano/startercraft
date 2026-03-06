@@ -5,9 +5,6 @@
       "@features/*": [
         "./src/app/features/*"
       ],
-      "@locales/*": [
-        "./src/locales/*"
-      ],
       "@components/*": [
         "./src/app/components/*"
       ],
