@@ -79,12 +79,11 @@ Component types: `elements/`, `layouts/`, `pages/`, `providers/`.
 | `@features/*`   | `src/app/features/*`   |
 | `@config/*`     | `src/app/config/*`     |
 | `@hooks/*`      | `src/app/hooks/*`      |
-| `@store/*`      | `src/app/store/*`      |
 | `@utils/*`      | `src/app/utils/*`      |
 | `@locales/*`    | `src/locales/*`        |
 | `@assets/*`     | `src/assets/*`         |
 
-**Removed aliases**: `@app/types/*`, `@http/*`, `@api/*`. Use `@domain/*` instead.
+**Removed aliases**: `@app/types/*`, `@http/*`, `@api/*`, `@store/*`. Use `@domain/*` instead.
 
 ## Commands
 

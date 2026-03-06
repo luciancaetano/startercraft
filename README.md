@@ -58,13 +58,11 @@ This starter ships with everything you need to build production-grade React apps
   - [React](https://reactjs.org/) – UI library
   - [TypeScript](https://www.typescriptlang.org/) – static typing
   - [React Router](https://reactrouter.com/) – routing
-  - [React Hook Form](https://react-hook-form.com/) – form handling
   - [i18next](https://www.i18next.com/) – internationalization
+  - [web-vitals](https://web.dev/vitals/) – performance monitoring
 
 - **Styling & UI**
   - [Tailwind CSS](https://tailwindcss.com/) – utility-first styling
-  - [Headless UI](https://headlessui.dev/) – accessible UI components
-  - [daisyUI](https://daisyui.com/) – Tailwind CSS component library
 
 - **Testing & Quality**
   - [Vitest](https://vitest.dev/) – unit testing
@@ -85,7 +83,7 @@ This starter ships with everything you need to build production-grade React apps
 Before you begin, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (version 18 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
 
 ---
 
@@ -112,11 +110,8 @@ Commonly used commands from `package.json`:
 | `npm start`             | Start the development server                   |
 | `npm run build`         | Compile the application for production         |
 | `npm run preview`       | Preview the production build                   |
-| `npm run test`          | Run all tests                                  |
-| `npm run test:unit`     | Run unit tests (Vitest)                        |
-| `npm run test:coverage` | Run tests with coverage report                 |
+| `npm run test`          | Run all tests with coverage                    |
 | `npm run lint`          | Run ESLint                                     |
-| `npm run serve`         | Serve the production build locally             |
 | `npm run generate`      | Run the code generator for components/features |
 | `npm run validate`      | Type-check, lint, and run tests                |
 
@@ -136,7 +131,6 @@ To avoid messy relative imports, this starter uses TypeScript path aliases:
 | `@domain/*`     | `./src/app/domain/*`     | Domain models, types & services      |
 | `@hooks/*`      | `./src/app/hooks/*`      | Custom React hooks                   |
 | `@locales/*`    | `./src/locales/*`        | Internationalization resources       |
-| `@store/*`      | `./src/app/store/*`      | Global store                         |
 | `@utils/*`      | `./src/app/utils/*`      | Utility functions                    |
 | `@assets/*`     | `./src/assets/*`         | Static assets (images, icons, fonts) |
 
@@ -245,10 +239,6 @@ npm run build
 
 Node.js version 18 or higher is required. Using the latest LTS version is recommended for better stability and support.
 
-### Can I use npm instead of yarn?
-
-Yes. Both `npm` and `yarn` work with this project. Use whichever you prefer, just be consistent across your team.
-
 ### How do I add a new feature or component?
 
 Use the code generation tool by running:
@@ -314,7 +304,7 @@ This starter was inspired by best practices and setups from the React community,
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [React Router Documentation](https://reactrouter.com/)
-- [React Hook Form Documentation](https://react-hook-form.com/)
 - [i18next Documentation](https://www.i18next.com/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Vitest Documentation](https://vitest.dev/guide/)
+- [Web Vitals](https://web.dev/vitals/)

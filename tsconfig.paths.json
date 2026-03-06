@@ -17,9 +17,6 @@
       "@hooks/*": [
         "./src/app/hooks/*"
       ],
-      "@store/*": [
-        "./src/app/store/*"
-      ],
       "@utils/*": [
         "./src/app/utils/*"
       ],

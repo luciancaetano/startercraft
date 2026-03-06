@@ -2,7 +2,6 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { defineConfig } from 'vite';
-import string from 'vite-plugin-string';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
@@ -12,9 +11,6 @@ export default defineConfig({
     react(),
     viteTsconfigPaths(),
     tailwindcss(),
-    string({
-      include: '**/*.md', // Enable importing .md files as text
-    }),
   ],
   server: {
     // this ensures that the browser opens upon server start

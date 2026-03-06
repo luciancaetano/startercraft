@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import i18n from '@config/i18n.config';
 import '@testing-library/jest-dom/vitest';
 
-vi.mock('@lib/i18n', () => ({
-  withResourceBundle: (component: any) => component,
+vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (key: string) => key,
-    i18n: i18n,
+    i18n: { language: 'en', changeLanguage: vi.fn() },
   }),
+  Trans: ({ children }: { children: React.ReactNode }) => children,
+  initReactI18next: { type: '3rdParty', init: vi.fn() },
 }));
