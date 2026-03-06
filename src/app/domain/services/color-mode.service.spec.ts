@@ -7,6 +7,10 @@ describe('ColorModeService', () => {
     document.body.removeAttribute('data-theme');
   });
 
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   describe('toggle', () => {
     it('returns light when current is dark', () => {
       expect(ColorModeService.toggle('dark')).toBe('light');
@@ -51,7 +55,7 @@ describe('ColorModeService', () => {
       const result = ColorModeService.resolvePreference();
 
       expect(result.source).toBe('system');
-      expect([ 'dark', 'light' ]).toContain(result.mode);
+      expect(['dark', 'light']).toContain(result.mode);
     });
   });
 
@@ -67,8 +71,8 @@ describe('ColorModeService', () => {
     it('adds dark class and data-theme for dark mode', () => {
       ColorModeService.applyToDocument('dark');
 
-      expect(document.body.classList.contains('dark')).toBe(true);
-      expect(document.body.getAttribute('data-theme')).toBe('dark');
+      expect(document.body).toHaveClass('dark');
+      expect(document.body).toHaveAttribute('data-theme', 'dark');
     });
 
     it('removes dark class for light mode', () => {
@@ -76,15 +80,32 @@ describe('ColorModeService', () => {
 
       ColorModeService.applyToDocument('light');
 
-      expect(document.body.classList.contains('dark')).toBe(false);
-      expect(document.body.getAttribute('data-theme')).toBe('light');
+      expect(document.body).not.toHaveClass('dark');
+      expect(document.body).toHaveAttribute('data-theme', 'light');
     });
   });
 
   describe('getSystemPreference', () => {
-    it('returns a valid color mode', () => {
-      const result = ColorModeService.getSystemPreference();
-      expect([ 'dark', 'light' ]).toContain(result);
+    it('returns dark when system prefers dark', () => {
+      window.matchMedia = vi.fn().mockReturnValue({ matches: true });
+
+      expect(ColorModeService.getSystemPreference()).toBe('dark');
+    });
+
+    it('returns light when system prefers light', () => {
+      window.matchMedia = vi.fn().mockReturnValue({ matches: false });
+
+      expect(ColorModeService.getSystemPreference()).toBe('light');
+    });
+
+    it('returns light when matchMedia is not available', () => {
+      Object.defineProperty(window, 'matchMedia', {
+        value: undefined,
+        writable: true,
+        configurable: true,
+      });
+
+      expect(ColorModeService.getSystemPreference()).toBe('light');
     });
   });
 });
