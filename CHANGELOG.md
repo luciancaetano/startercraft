@@ -5,7 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.0] - 2026-03-05
+## [1.4.0]
+
+### Removed
+
+- **i18n (Internationalization)** — removed entirely
+  - Dependencies: `i18next`, `react-i18next`, `i18next-browser-languagedetector`
+  - Configuration: `src/app/config/i18n.config.ts`, `src/i18next.d.ts`
+  - Translations: `src/locales/` (`en/`, `es/`, `pt-BR/`)
+  - `@locales/*` alias removed from `tsconfig.paths.json` and `vite.config.ts`
+  - `NotFoundPage` now uses static text instead of translation keys
+  - `src/setupTests.ts` cleaned up (i18n mock removed)
+  - `src/index.tsx` cleaned up (i18n config import and type reference removed)
+
+- **Store layer** — removed `src/app/store/.gitkeep` and `@store/*` alias
+- **Mock files** — removed `__mocks__/` directory (`cssTransform.js`, `fileMock.js`, `react-router-dom.ts`, `svgTransform.js`)
+- **Legacy configs** — removed `jest.config.ts` and PostCSS plugin reference in `postcss.config.cjs`
+- **Unused dependencies** — `dayjs`, `lodash`, `@types/lodash`, `history`, `@types/dompurify`, `@types/jsonwebtoken`, `@types/marked`, `@mswjs/data`, `@stylistic/eslint-plugin-ts`, `autoprefixer`, `cross-env`, `identity-obj-proxy`, `is-ci`, `is-ci-cli`, `react-test-renderer`, `serve`, `ts-jest`, `tsconfig-paths-webpack-plugin`, `vite-plugin-string`, `type-fest`
+- **Legacy scripts** — removed `test:staged`, `serve`; removed `resolutions` and inline `eslintConfig` from `package.json`
+- **Documentation** — removed `docs/store.md`
+
+### Changed
+
+- **Dependencies reorganized** — moved build/dev tools (`typescript`, `vite`, `vite-tsconfig-paths`, `@types/*`, `@testing-library/*`, `@stylistic/eslint-plugin`, `@tailwindcss/typography`) from `dependencies` to `devDependencies`
+- **Package scripts** — replaced `yarn` references with `npm run` in `validate` and `lint-staged` scripts
+- **lint-staged** — simplified to only run `eslint --fix` (removed `test:staged` step)
+- **Web Vitals** — added inline `reportWebVitals` in `src/index.tsx` (CLS, FID, LCP, FCP, TTFB), active only in dev mode
+- **Copilot instructions** — removed store organization section; minor formatting fixes
+
+### Documentation
+
+- Added `docs/testing-guide.md` — comprehensive testing guide with Vitest + Testing Library patterns
+- Updated `docs/code-generation.md`, `docs/component-organization.md`, `docs/domain-layer.md`
+- Updated `CLAUDE.md` — removed `@store/*`, `@locales/*` from alias table; updated conventions
+- Updated `README.md` — refreshed to reflect current project state
+
+---
+
+## [1.3.0]
 
 ### Architecture
 
@@ -78,6 +115,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 
 Major version bumps:
+
 - React `18.x` → `19.2.4`
 - Vite `5.x` → `7.3.1`
 - TypeScript `5.3` → `5.9.3`
@@ -88,10 +126,12 @@ Major version bumps:
 - type-fest `4.x` → `5.4.4`
 
 Added:
+
 - `@startercraft/cli` (code generation)
 - `@tailwindcss/postcss`, `@tailwindcss/vite` (Tailwind v4 integration)
 
 Removed:
+
 - `jsonwebtoken`, `@types/jsonwebtoken` (JWT handling removed)
 - `@mswjs/http-middleware` (API mocking removed)
 - Multiple internal `src/lib` dependencies
@@ -116,3 +156,4 @@ Removed:
 ## [1.2.1] - 2025-08-23
 
 _Previous release. See git history for details._
+
